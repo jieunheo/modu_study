@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>table</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        border: 3px solid #000;
+        table-layout: fixed;
+        width: 100%;
+      }
+
+      caption {
+        caption-side: bottom;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 6px 20px;
+      }
+
+      th {
+        background-color: #eee;
+      }
+
+      td {
+        text-align: center;
+      }
+
+      tfoot {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 이곳에 작성해보세요 -->
+
+    <!-- scope -->
+    <table>
+      <caption>
+        2023 학년도 대학수능능력시험 성적통지표
+      </caption>
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th scope="col" rowspan="2">한국사 영역</th>
+          <th scope="colgroup">국어 영역</th>
+          <th scope="colgroup">수학 영역</th>
+          <th scope="col" rowspan="2">영어 영역</th>
+          <th scope="colgroup" colspan="2">탐구 영역</th>
+          <th scope="colgroup">제 2 외국어/한문 영역</th>
+        </tr>
+        <tr>
+          <th scope="row">선택과목</th>
+          <th scope="col">화법과 작문</th>
+          <th scope="col">확률과 통계</th>
+          <th scope="col">생활과 윤리</th>
+          <th scope="col">지구과학 1</th>
+          <th scope="col">독일어</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">표준점수</th>
+          <td rowspan="2">&nbsp;</td>
+          <td>131</td>
+          <td>137</td>
+          <td rowspan="2">&nbsp;</td>
+          <td>53</td>
+          <td>64</td>
+          <td rowspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+          <th scope="row">백분위</th>
+          <td>93</td>
+          <td>95</td>
+          <td>75</td>
+          <td>93</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row">등급</th>
+          <td>2</td>
+          <td>2</td>
+          <td>2</td>
+          <td>1</td>
+          <td>1</td>
+          <td>2</td>
+          <td>2</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- id-headers -->
+    <table>
+      <caption>
+        2023 학년도 대학수능능력시험 성적통지표
+      </caption>
+      <thead>
+        <tr>
+          <th id="division">구분</th>
+          <th id="ko-his" rowspan="2">한국사 영역</th>
+          <th id="ko">국어 영역</th>
+          <th id="math">수학 영역</th>
+          <th id="en" rowspan="2">영어 영역</th>
+          <th id="quest" colspan="2">탐구 영역</th>
+          <th id="sec-lang">제 2 외국어/한문 영역</th>
+        </tr>
+        <tr>
+          <th id="elective-subjects">선택과목</th>
+          <th id="speaking-writing">화법과 작문</th>
+          <th id="probability-statistics">확률과 통계</th>
+          <th id="life-ethics">생활과 윤리</th>
+          <th id="earth-science">지구과학 1</th>
+          <th id="german">독일어</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th id="standard-score">표준점수</th>
+          <td headers="standard-score ko-his" rowspan="2">&nbsp;</td>
+          <td headers="standard-score ko speaking-writing">131</td>
+          <td headers="standard-score math probability-statistics">137</td>
+          <td headers="standard-score en" rowspan="2">&nbsp;</td>
+          <td headers="standard-score quest life-ethics">53</td>
+          <td headers="standard-score quest earth-science">64</td>
+          <td headers="standard-score sec-lang german" rowspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+          <th id="percentile">백분위</th>
+          <td headers="percentile ko speaking-writing">93</td>
+          <td headers="percentile math probability-statistics">95</td>
+          <td headers="percentile quest life-ethics">75</td>
+          <td headers="percentile quest earth-science">93</td>
+        </tr>
+        <tr>
+          <th id="grade">등급</th>
+          <td headers="grade ko-his">2</td>
+          <td headers="grade ko speaking-writing">2</td>
+          <td headers="grade math probability-statistics">2</td>
+          <td headers="grade en">1</td>
+          <td headers="grade quest life-ethics">1</td>
+          <td headers="grade quest earth-science">2</td>
+          <td headers="grade sec-lang german">2</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

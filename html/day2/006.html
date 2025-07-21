@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>id - headers</title>
+  </head>
+  <body>
+    <table>
+      <table>
+        <caption>
+          서울/제주 월별 날씨
+        </caption>
+
+        <thead>
+          <tr>
+            <th id="city">도시</th>
+            <th id="jan" colspan="2">1월</th>
+            <th id="fab" colspan="2">2월</th>
+          </tr>
+          <tr>
+            <th>&nbsp;</th>
+            <th id="jan-temp">온도</th>
+            <th id="jan-humid">습도</th>
+            <th id="fab-temp">온도</th>
+            <th id="fab-humid">습도</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th id="seoul">서울</th>
+            <td headers="seoul jan jan-temp">-2°C</td>
+            <td headers="seoul jan jan-humid">45%</td>
+            <td headers="seoul fab fab-temp">3°C</td>
+            <td headers="seoul fab fab-humid">50%</td>
+          </tr>
+          <tr>
+            <th id="jeju">제주</th>
+            <td headers="jeju jan jan-temp">5°C</td>
+            <td headers="jeju jan jan-humid">70%</td>
+            <td headers="jeju fab fab-temp">8°C</td>
+            <td headers="jeju fab fab-humid">65%</td>
+          </tr>
+        </tbody>
+      </table>
+    </table>
+  </body>
+</html>

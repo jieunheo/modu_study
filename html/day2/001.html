@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인라인과 블럭요소</title>
+    <style>
+      body * {
+        background-color: lightblue;
+        border: 1px solid black;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 블록 레벨 요소 -->
+    <div>저는 div 입니다</div>
+    <div>저는 div 입니다</div>
+    <div>저는 div 입니다</div>
+    <p>
+      <!-- 인라인 레벨 요소 -->
+      이제 <span style="background-color: red">span 태그</span>를 사용해볼게요.
+    </p>
+    <!-- 중첩해서 사용 X -->
+    <!-- <span
+      >이건
+      <div>span 태그</div>
+      입니다.</span
+    > -->
+    <!-- 인라인 블럭 요소 -->
+    <!-- 내부적으로는 블록 규칙을 따르나 외부적으로는 인라인 규칙을 따른다 -->
+    <button>저는 버튼입니다.</button>
+    <button>저는 버튼입니다.</button>
+    <button>저는 버튼입니다.</button>
+  </body>
+</html>
