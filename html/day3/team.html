@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .sr-only {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
+      button {
+        width: 318px;
+        height: 40px;
+        top: 50px;
+        left: 16px;
+        border-radius: 4px;
+        background-color: #711bff;
+      }
+      button img {
+        width: 64px;
+        height: 18px;
+      }
+
+      /* button p {
+        display: inline-block;
+      } */
+    </style>
+    <title>각종 시멘틱 태그들</title>
+  </head>
+  <body>
+    <section>
+      <h1 class="sr-only">로그인</h1>
+      <p>더 편리해진 위니브에 오신 것을 환영합니다.</p>
+
+      <button>
+        <img src="./img/weniv-logo.png" alt="weniv 로그인" />
+        <span style="color: white">로그인</span>
+      </button>
+
+      <div class="login-links">
+        <img src="img/icon-lock.png" alt="아이디 찾기" />
+        <a href="#" class="find-id"> 아이디 </a>
+
+        <span>|</span>
+
+        <a href="#" class="find-pw"> 비밀번호 찾기 </a>
+
+        <span
+          >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span
+        >
+
+        <img src="img/icon-user.png" alt="" />
+        <a href="#" class="signup"> 회원가입 </a>
+      </div>
+    </section>
+  </body>
+</html>

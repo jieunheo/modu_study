@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style></style>
+    <title>각종 시멘틱 태그들</title>
+    <style>
+      section > div {
+        width: 350px;
+        margin: 30px auto;
+        padding: 16px;
+        border: 1px solid #dbdbdb;
+        border-radius: 5px;
+
+        box-sizing: border-box;
+        font-size: 12px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+        font-weight: 400;
+      }
+
+      .login-btn {
+        width: 318px;
+        height: 40px;
+        border: none;
+        color: #ccc;
+        font-weight: 500;
+
+        box-sizing: border-box;
+
+        margin: 16px 0;
+
+        background-color: #711bff;
+        border-radius: 4px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+      }
+      .login-btn img {
+        width: 64px;
+      }
+
+      .wrap {
+        display: flex;
+        justify-content: space-between;
+        color: #767676;
+      }
+      .wrap img {
+        width: 16px;
+        height: 16px;
+      }
+      .wrap > div {
+        display: flex;
+        gap: 4px;
+      }
+      /* 스크린리더 온리 */
+      .sr-only {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <!-- 다른 페이지에서 사용될 것을 감안하여 h2로 사용 -->
+      <h2 class="sr-only">로그인</h2>
+      <div>
+        <p>더 편리해진 위니브에 오신 것을 환영합니다.</p>
+        <!-- 페이지 이동 : a, 모달창 : button -->
+        <a class="login-btn" href="https://weniv.com">
+          <img src="./img/weniv-logo.png" alt="weniv" />
+          <span>로그인</span>
+        </a>
+        <div class="wrap">
+          <div>
+            <!-- 시각적인 디자인 요소이기 떄문에 alt 비워두기 -->
+            <img src="./img/icon-lock.png" alt="" />
+            <a href="#">아이디</a>
+            <span>|</span>
+            <a href="#">비밀번호찾기</a>
+          </div>
+          <div>
+            <img src="./img/icon-user.png" alt="" />
+            <a href="#">회원가입</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

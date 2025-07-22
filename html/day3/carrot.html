@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>당근마켓</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      li {
+        list-style: none;
+      }
+      button {
+        border: none;
+        background: none;
+      }
+      /* 스크린리더 온리 */
+      .sr-only {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
+      header {
+        max-width: 1280px;
+        width: 100%;
+        margin: 0 auto;
+
+        padding: 8px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+      header .logo {
+        width: 60px;
+      }
+      header nav ul {
+        display: flex;
+        gap: 16px;
+        margin-left: 32px;
+        font-weight: 700;
+      }
+      header form {
+        margin-left: auto;
+      }
+      header form input {
+        background-color: #f3f3f3;
+        padding: 10px 8px;
+        border: none;
+        border-radius: 4px;
+        width: 260px;
+      }
+      header form button {
+        padding: 8px;
+        border: 1px solid #dbdbdb;
+        border-radius: 4px;
+        font-weight: 700;
+      }
+
+      main section {
+        padding: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+      }
+
+      .carrot-app {
+        background-color: #fffae2;
+      }
+      .carrot-app-info .carrot-app-title {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      .carrot-app-info .carrot-app-desc {
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 24px;
+        line-height: 1.5;
+        color: #535353;
+      }
+      .carrot-app-download {
+        display: flex;
+        gap: 16px;
+        margin-top: 24px;
+      }
+      .carrot-app-download a {
+        color: #fff;
+        background-color: #fe6f0f;
+        border-radius: 8px;
+        padding: 16px 32px;
+        font-weight: 700;
+
+        display: flex;
+      }
+      .carrot-app-download a img {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+      }
+
+      .caroot_char {
+        width: 600px;
+      }
+
+      h2.heading {
+        font-size: 16px;
+        font-weight: 700;
+        color: #fe6f0f;
+      }
+      p.title {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-top: 16px;
+      }
+      p.desc {
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 16px;
+        color: #535353;
+      }
+      .links-wrap {
+        display: flex;
+        gap: 8px;
+        margin-top: 32px;
+      }
+      .links-wrap a {
+        background-color: #e8ecef;
+        padding: 16px;
+        font-weight: 700;
+        border-radius: 8px;
+      }
+
+      main section > img {
+        width: 400px;
+        height: 600px;
+      }
+
+      .carrot-used-trade,
+      .carrot-job {
+        background-color: #f9f9f9;
+      }
+      .carrot-neighborhood {
+        background-color: #fff8f0;
+      }
+
+      .carrot-neighborhood-company {
+        background-color: #f6fded;
+      }
+
+      .carrot-neighborhood-links {
+        margin-top: 32px;
+      }
+      .carrot-neighborhood-links ul {
+        display: flex;
+        gap: 32px;
+      }
+      .carrot-neighborhood-links img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+      }
+      .carrot-neighborhood-links .link-title {
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .carrot-neighborhood-links .link-desc {
+        font-size: 12px;
+        color: #a4a19c;
+      }
+
+      footer section {
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .footer-nav {
+        margin-top: 32px;
+        margin-bottom: 32px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .footer-links {
+        font-size: 12px;
+        display: flex;
+        gap: 30px;
+      }
+      .footer-links-category li {
+        padding: 16px 8px;
+      }
+
+      footer .download-title {
+        font-weight: 700;
+        font-size: 12px;
+      }
+      footer .carrot-app-download {
+        margin-top: 16px;
+      }
+      footer .carrot-app-download a {
+        background-color: #f2f3f7;
+        color: #202022;
+        font-size: 12px;
+      }
+
+      footer .carrot-info {
+        color: #535353;
+        margin-top: 16px;
+        font-size: 11px;
+        border-top: 1px solid #ccc;
+      }
+
+      footer .carrot-info address {
+        font-style: normal;
+      }
+      footer .carrot-info address dt,
+      footer .carrot-info address dd {
+        display: inline-block;
+      }
+      footer .carrot-info address dt {
+        font-weight: 700;
+      }
+      footer .carrot-info address dl div dt:nth-child(3)::before {
+        content: "|"; /* 필수 */
+        font-weight: bold; /* 글자 두께 */
+        display: inline-block; /* 필요에 따라 블록화 */
+        margin-right: 4px; /* 요소와 간격 */
+        font-weight: 400;
+      }
+      footer .carrot-info address .info {
+        display: flex;
+        justify-content: space-between;
+        padding: 32px 0 16px;
+      }
+
+      footer .info-links ul {
+        align-items: center;
+      }
+      footer .info-links a img {
+        width: 24px;
+        height: 24px;
+        background-color: #ddd;
+      }
+
+      footer .carrot-info ul,
+      footer .carrot-policy ul {
+        display: flex;
+        gap: 16px;
+        font-size: 11px;
+      }
+
+      footer .carrot-policy {
+        margin-bottom: 32px;
+        margin-top: 16px;
+      }
+
+      select {
+        border: none;
+        padding: 8px;
+        font-size: 12px;
+
+        appearance: none;
+        background: url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>')
+          no-repeat right 10px center;
+        padding-right: 30px;
+      }
+      select::-ms-expand {
+        color: #535353; /* 화살표 색상 */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1><img class="logo" src="./img/carrot_logo.svg" alt="당근마켓" /></h1>
+      <nav>
+        <ul>
+          <li><a href="">중고거래</a></li>
+          <li><a href="">동네업체</a></li>
+          <li><a href="">알바</a></li>
+          <li><a href="">부동산</a></li>
+          <li><a href="">중고차 직거래</a></li>
+        </ul>
+      </nav>
+      <form action="">
+        <input type="text" placeholder="물품이나 동네를 검색해주세요" />
+        <button type="submit">채팅하기</button>
+      </form>
+    </header>
+    <main>
+      <section class="carrot-app">
+        <h2 class="sr-only">당근마켓 앱 다운로드</h2>
+        <div class="carrot-app-info">
+          <p class="carrot-app-title">
+            당신 근처의<br />
+            지역 생활 커뮤니티
+          </p>
+          <p class="carrot-app-desc">
+            동네에서 가능한 모든 것<br />
+            당근에서 가까운 이웃과 함께해요.
+          </p>
+          <div class="carrot-app-download">
+            <a href="">
+              <img src="" alt="" />
+              <span>Google Play</span>
+            </a>
+            <a href="">
+              <img src="" alt="" />
+              <span>App Store</span>
+            </a>
+          </div>
+        </div>
+        <img
+          class="caroot_char"
+          src="./img/caroot_char.png"
+          alt="손 흔드는 당근이"
+        />
+      </section>
+
+      <section class="carrot-used-trade">
+        <img src="" alt="모바일 중고거래 화면" />
+        <div>
+          <h2 class="heading">중고거래</h2>
+          <p class="title">믿을만한<br />이웃 간 중고거래</p>
+          <p class="desc">
+            동네 주민들과 가깝고 따뜻한 거래를<br />지금 경험해보세요.
+          </p>
+          <div class="links-wrap">
+            <a href="">인기게시물 보기</a>
+            <a href="">믿을 수 있는 중고거래</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="carrot-neighborhood">
+        <div>
+          <h2 class="heading">동네생활</h2>
+          <p class="title">이웃만 아는<br />동네 정보와 이야기</p>
+          <p class="desc">
+            우리동네의 다양한 정보와 이야기를<br />공감과 댓글로 나누어요.
+          </p>
+          <div class="carrot-neighborhood-links">
+            <ul>
+              <li>
+                <a>
+                  <img src="" alt="" />
+                  <p class="link-title">동네모임</p>
+                  <p class="link-desc">
+                    근처 이웃들과 동네<br />이야기를 해보세요.
+                  </p>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <img src="" alt="" />
+                  <p class="link-title">동네질문</p>
+                  <p class="link-desc">
+                    궁금한 게 있을 땐<br />이웃에 물어보세요.
+                  </p>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <img src="" alt="" />
+                  <p class="link-title">동네분실센터</p>
+                  <p class="link-desc">
+                    무언가를 잃어버렸다면<br />글을 올려보세요.
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <img src="" alt="모바일 동네 생활 화면" />
+      </section>
+
+      <section class="carrot-job">
+        <img src="" alt="모바일 알바 화면" />
+        <div>
+          <h2 class="heading">알바</h2>
+          <p class="title">걸어서 10분!<br />동네 알바 구하기</p>
+          <p class="desc">
+            당근하듯 쉽고, 편하게<br />당근 알바로 동네 알바를 구할 수 있어요.
+          </p>
+          <div class="links-wrap">
+            <a href="">내근처 알바 보기</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="carrot-neighborhood-company">
+        <div>
+          <h2 class="heading">동네업체</h2>
+          <p class="title">내 근처에서 찾는<br />동네 업체</p>
+          <p class="desc">
+            당근하듯 쉽고, 편하게<br />당근 알바로 동네 알바를 구할 수 있어요.
+          </p>
+          <div class="links-wrap">
+            <a href="">당근 동네업체 보기</a>
+          </div>
+        </div>
+        <img src="" alt="모바일 동네 업체 화면" />
+      </section>
+    </main>
+
+    <footer>
+      <section class="footer-nav">
+        <h2 class="sr-only">당근마켓 하단 네비게이션</h2>
+        <nav>
+          <ul class="footer-links">
+            <li>
+              <ul class="footer-links-category">
+                <li><a href="">중고거래</a></li>
+                <li><a href="">동네업체</a></li>
+                <li><a href="">당근알바</a></li>
+                <li><a href="">부동산</a></li>
+                <li><a href="">중고차 직거래</a></li>
+              </ul>
+            </li>
+            <li>
+              <ul class="footer-links-category">
+                <li><a href="">당근비즈니스</a></li>
+                <li><a href="">채팅하기</a></li>
+              </ul>
+            </li>
+            <li>
+              <ul class="footer-links-category">
+                <li><a href="">자주 묻는 질문</a></li>
+                <li><a href="">회사 소개</a></li>
+                <li><a href="">인재 채용</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <div class="footer-download">
+          <p class="download-title">당근 앱 다운로드</p>
+          <div class="carrot-app-download">
+            <a href="">
+              <img src="" alt="" />
+              <span>App Store</span>
+            </a>
+            <a href="">
+              <img src="" alt="" />
+              <span>Google Play</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="carrot-info">
+        <h2 class="sr-only">당근마켓 정보</h2>
+        <address>
+          <div class="info">
+            <dl>
+              <div>
+                <dt>대표</dt>
+                <dd>김용현, 황도연</dd>
+                <dt>사업자번호</dt>
+                <dd>375-87-00088</dd>
+              </div>
+              <div>
+                <dt class="new-line">직업정보제공사업 신고번호</dt>
+                <dd>J1200020200016</dd>
+              </div>
+              <div>
+                <dt class="new-line">통신판매업 신고번호</dt>
+                <dd>2021-서울서초-2875</dd>
+              </div>
+              <div>
+                <dt class="new-line">주소</dt>
+                <dd>서울특별시 디지털로 300, 10층 (당근서비스)</dd>
+              </div>
+              <div>
+                <dt class="new-line">전화</dt>
+                <dd>1544-9796</dd>
+                <dt>고객문의</dt>
+                <dd>cs@daangnservice.com</dd>
+              </div>
+            </dl>
+
+            <div class="info-links">
+              <ul>
+                <li>
+                  <a href=""><img src="" alt="페이스북" /></a>
+                </li>
+                <li>
+                  <a href=""><img src="" alt="인스타그램" /></a>
+                </li>
+                <li>
+                  <a href=""><img src="" alt="유튜브" /></a>
+                </li>
+                <li>
+                  <a href=""><img src="" alt="블로그" /></a>
+                </li>
+                <li>
+                  <img src="" alt="" />
+                  <select name="" id="">
+                    <option value="">한국</option>
+                    <option value="">English</option>
+                    <option value="">日本語</option>
+                    <option value="">中文</option>
+                  </select>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="sr-only">당근마켓 문의 연락 방법</h2>
+            <ul>
+              <li><a href="">제휴 문의</a></li>
+              <li><a href="">광고 문의</a></li>
+              <li><a href="">PR 문의</a></li>
+              <li><a href="">IR 문의</a></li>
+            </ul>
+          </div>
+        </address>
+      </section>
+
+      <section class="carrot-policy">
+        <h2 class="sr-only">당근마켓 약관 및 정책</h2>
+        <ul>
+          <li><a href="">이용약관</a></li>
+          <li>
+            <a href=""><strong>개인정보처리방침</strong></a>
+          </li>
+          <li><a href="">운영정책</a></li>
+          <li><a href="">위치기반서비스 이용약관</a></li>
+          <li><a href="">이용자보호 비전과 계획</a></li>
+          <li><a href="">청소년보호정책</a></li>
+        </ul>
+      </section>
+    </footer>
+  </body>
+</html>
