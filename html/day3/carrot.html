@@ -218,7 +218,7 @@
 
       footer .carrot-info {
         color: #535353;
-        margin-top: 16px;
+        padding-top: 16px;
         font-size: 11px;
         border-top: 1px solid #ccc;
       }
@@ -240,10 +240,10 @@
         margin-right: 4px; /* 요소와 간격 */
         font-weight: 400;
       }
-      footer .carrot-info address .info {
+      footer .carrot-info .info {
         display: flex;
         justify-content: space-between;
-        padding: 32px 0 16px;
+        padding-bottom: 16px;
       }
 
       footer .info-links ul {
@@ -454,8 +454,8 @@
 
       <section class="carrot-info">
         <h2 class="sr-only">당근마켓 정보</h2>
-        <address>
-          <div class="info">
+        <div class="info">
+          <address>
             <h3 class="sr-only">회사 정보</h3>
             <dl>
               <div>
@@ -483,45 +483,45 @@
                 <dd>cs@daangnservice.com</dd>
               </div>
             </dl>
+          </address>
 
-            <div class="info-links">
-              <h3 class="sr-only">SNS 정보 및 페이지 언어</h3>
-              <ul>
-                <li>
-                  <a href=""><img src="" alt="페이스북" /></a>
-                </li>
-                <li>
-                  <a href=""><img src="" alt="인스타그램" /></a>
-                </li>
-                <li>
-                  <a href=""><img src="" alt="유튜브" /></a>
-                </li>
-                <li>
-                  <a href=""><img src="" alt="블로그" /></a>
-                </li>
-                <li>
-                  <img src="" alt="" />
-                  <select name="" id="">
-                    <option value="">한국</option>
-                    <option value="">English</option>
-                    <option value="">日本語</option>
-                    <option value="">中文</option>
-                  </select>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div>
-            <h3 class="sr-only">당근마켓 문의 연락 방법</h3>
+          <div class="info-links">
+            <h3 class="sr-only">SNS 정보 및 페이지 언어</h3>
             <ul>
-              <li><a href="">제휴 문의</a></li>
-              <li><a href="">광고 문의</a></li>
-              <li><a href="">PR 문의</a></li>
-              <li><a href="">IR 문의</a></li>
+              <li>
+                <a href=""><img src="" alt="페이스북" /></a>
+              </li>
+              <li>
+                <a href=""><img src="" alt="인스타그램" /></a>
+              </li>
+              <li>
+                <a href=""><img src="" alt="유튜브" /></a>
+              </li>
+              <li>
+                <a href=""><img src="" alt="블로그" /></a>
+              </li>
+              <li>
+                <img src="" alt="" />
+                <select name="" id="">
+                  <option value="">한국</option>
+                  <option value="">English</option>
+                  <option value="">日本語</option>
+                  <option value="">中文</option>
+                </select>
+              </li>
             </ul>
           </div>
-        </address>
+        </div>
+
+        <div>
+          <h3 class="sr-only">당근마켓 문의 연락 방법</h3>
+          <ul>
+            <li><a href="">제휴 문의</a></li>
+            <li><a href="">광고 문의</a></li>
+            <li><a href="">PR 문의</a></li>
+            <li><a href="">IR 문의</a></li>
+          </ul>
+        </div>
       </section>
 
       <section class="carrot-policy">
