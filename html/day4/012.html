@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>그 외</title>
+  </head>
+  <body>
+    <!--
+    dialog: 대화 상자나 모달 창(modal window) 같은 대화형 컴포넌트를 만드는 데 사용
+    팝업 요소를 만들 때 유용 -->
+    <button id="showDialogBtn">모달 열기</button>
+    <dialog id="myDialog">
+      <p>함께해서 즐거웠어요!</p>
+      <button id="closeBtn">닫기</button>
+    </dialog>
+
+    <script>
+      const dialog = document.getElementById("myDialog");
+      const showDialogBtn = document.getElementById("showDialogBtn");
+      const closeBtn = document.getElementById("closeBtn");
+
+      showDialogBtn.addEventListener("click", () => {
+        dialog.showModal();
+        console.log("FE 짱짱");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        dialog.close();
+      });
+    </script>
+
+    <details>
+      <summary>더 많은 정보를 보려면 클릭하세요</summary>
+      <p>이 부분은 클릭하면 보이는 숨겨진 내용입니다.</p>
+    </details>
+
+    <!-- 화면 크기별로 최적화된 이미지 제공하는 예제 (반응형) -->
+    <!-- 
+    picture: 여러 이미지 소스를 제공하여 브라우저가 최적의 이미지를 선택할 수 있도록 함
+    srcset: 다양한 해상도와 크기의 이미지를 제공하여 브라우저가 최적의 이미지를 선택할 수 있도록 함
+    media: 미디어 쿼리를 사용하여 특정 조건에 맞는 이미지 소스를 선택할 수 있도록 함
+    img: 대체 텍스트를 제공하여 이미지가 로드되지 않거나 접근성 도구가 이미지를 읽을 수 있도록 함
+
+    작은 이미지부터 큰 이미지 순으로 srcset에 나열
+    img 태그는 기본 이미지로 사용되며, 브라우저가 지원하지 않는 경우에만 사용됨
+    이 때 alt 속성은 img 태그에만 작성하면 됨
+    -->
+    <picture>
+      <source srcset="./src/jeju-m.jpg" media="(max-width: 800px)" />
+      <source srcset="./src/jeju-t.jpg" media="(max-width: 1280px)" />
+      <img src="./src/jeju-p.jpg" alt="제주도 풍경" />
+    </picture>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>video</title>
+  </head>
+  <body>
+    <!-- 
+    controls 재생, 일시정지, 음소거 등의 컨트롤을 제공
+    autoplay 페이지 로드 시 자동으로 재생
+    muted 자동 재생 시 음소거 상태로 시작
+    loop 비디오가 끝나면 다시 시작
+    poster 비디오가 로드되기 전 표시할 이미지, 비디오의 설명
+    preload 비디오가 로드되는 방식을 지정, 빈 문자열은 브라우저의 기본값을 사용(metadata)
+    track 비디오에 자막을 추가할 때 사용, 이 예제에서는 사용하지 않음
+    -->
+    <!-- autoplay 속성을 사용하기 위해서는 muted 속성을 꼭 함께 사용 -->
+    <video
+      src="./src/rabbit.mp4"
+      width="300"
+      controls
+      muted
+      loop
+      poster="../day2/rosy.png"
+      preload=""
+    ></video>
+
+    <!-- source 태그와 함께 사용 -->
+    <!--
+    source 브라우저가 지원하는 형식을 선택하여 재생
+    media 화면 크기별로 다른 비디오를 재공할 수 있음(반응형), min-width, max-width 속성 사용
+    -->
+    <video width="300" controls>
+      <!-- mp4를 가장 먼저 배치 -> 다른 형식 배치 -->
+      <source
+        src="./src/rabbit.mp4"
+        type="video/mp4"
+        media="(min-width: 1024px)"
+      />
+      <source
+        src="./src/rabbit.MOV"
+        type="video/quicktime"
+        media="(max-width: 1023px)"
+      />
+      비디오를 지원하지 않습니다.
+    </video>
+  </body>
+</html>

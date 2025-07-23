@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>다양한 input 유형들</title>
+    <style>
+      input {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <input
+      type="password"
+      placeholder="비밀번호는 특수문자를 포함해야합니다."
+    />
+    <input type="text" required />
+    <input
+      type="text"
+      disabled
+    /><!-- 사용자가 입력할 수 x, value 있어도 값이 넘어가지 않음 -->
+    <input
+      type="text"
+      readonly
+      value="동의합니다."
+    /><!-- 사용자가 입력할 수 x, value 있다면 값이 넘어감 -->
+
+    <input type="submit" />
+    <input type="button" value="신청하기" />
+    <input type="reset" value="초기화" />
+
+    <input type="email" />
+    <input type="url" />
+    <input type="number" step="2" />
+
+    <!-- 단일값 또는 여러값 선택 가능 -->
+    <input name="ck" type="checkbox" />
+    <input name="ck" type="checkbox" />
+    <input name="ck" type="checkbox" />
+
+    <!-- 단일값 선택 가능 -->
+    <input name="ra" type="radio" />
+    <input name="ra" type="radio" />
+    <input name="ra" type="radio" />
+
+    <input type="date" />
+    <input type="datetime-local" />
+    <input type="month" />
+    <input type="time" />
+
+    <input type="file" />
+    <input type="search" />
+    <input type="color" />
+    <input type="range" />
+
+    <input type="hidden" /><!-- 화면에 보이지 않게 숨긴 채 데이터 전송 -->
+  </body>
+</html>

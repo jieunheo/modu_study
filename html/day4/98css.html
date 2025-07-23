@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>98.css 사용해보기</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+  </head>
+  <body>
+    <div class="title-bar">
+      <div class="title-bar-text">A Title Bar with Maximize disabled</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize" disabled></button>
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+
+    <div class="field-row">
+      <input checked type="checkbox" id="example2" />
+      <label for="example2">I am checked</label>
+    </div>
+    <div class="field-row">
+      <input disabled type="checkbox" id="example3" />
+      <label for="example3">I am inactive</label>
+    </div>
+    <div class="field-row">
+      <input checked disabled type="checkbox" id="example4" />
+      <label for="example4">I am inactive but still checked</label>
+    </div>
+
+    <button>Click me</button>
+    <input type="submit" />
+    <input type="reset" />
+
+    <div class="field-row-stacked" style="width: 200px">
+      <label for="text20">Additional notes</label>
+      <textarea id="text20" rows="8"></textarea>
+    </div>
+
+    <ul class="tree-view">
+      <li>Table of Contents</li>
+      <li>What is web development?</li>
+      <li>
+        CSS
+        <ul>
+          <li>Selectors</li>
+          <li>Specificity</li>
+          <li>Properties</li>
+        </ul>
+      </li>
+      <li>
+        <details open>
+          <summary>JavaScript</summary>
+          <ul>
+            <li>Avoid at all costs</li>
+            <li>
+              <details>
+                <summary>Unless</summary>
+                <ul>
+                  <li>Avoid</li>
+                  <li>
+                    <details>
+                      <summary>At</summary>
+                      <ul>
+                        <li>Avoid</li>
+                        <li>At</li>
+                        <li>All</li>
+                        <li>Cost</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>All</li>
+                  <li>Cost</li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </details>
+      </li>
+      <li>HTML</li>
+      <li>Special Thanks</li>
+    </ul>
+  </body>
+</html>

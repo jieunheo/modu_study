@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form 만들기</title>
+
+    <style>
+      form {
+        width: 500px;
+        margin: 0 auto;
+      }
+      label,
+      legend {
+        font-weight: bold;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="date"],
+      input[type="file"],
+      input[type="tel"],
+      select {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <div><label for="id">아이디</label><input type="text" id="id" /></div>
+      <div>
+        <label for="pw">비밀번호</label
+        ><input type="password" id="pw" placeholder="특수문자 포함 필수" />
+      </div>
+
+      <div><label for="birth">생일</label><input type="date" id="birth" /></div>
+
+      <div>
+        <label for="profile">프로필사진</label
+        ><input type="file" id="profile" />
+      </div>
+
+      <div>
+        <select name="phone-type">
+          <option value="skt">SKT</option>
+          <option value="kt">KT</option>
+          <option value="lg">LG U+</option>
+        </select>
+        <label for="phone">연락처</label>
+        <input type="tel" id="phone" />
+      </div>
+
+      <fieldset>
+        <legend>성별</legend>
+        <label for="male">남성</label>
+        <input type="radio" id="male" name="gender" />
+        <label for="female">여성</label>
+        <input type="radio" id="female" name="gender" />
+      </fieldset>
+
+      <fieldset>
+        <legend>사용 기술</legend>
+        <label for="html">HTML</label>
+        <input type="checkbox" id="html" name="skill" value="html" />
+        <label for="css">CSS</label>
+        <input type="checkbox" id="css" name="skill" value="css" />
+        <label for="js">JavaScript</label>
+        <input type="checkbox" id="js" name="skill" value="js" />
+        <label for="python">Python</label>
+        <input type="checkbox" id="python" name="skill" value="python" />
+        <label for="django">Django</label>
+        <input type="checkbox" id="django" name="skill" value="django" />
+      </fieldset>
+
+      <div>
+        <label for="browser">사용하는 브라우저를 선택하세요</label>
+        <input type="text" list="browsers" id="browser" name="browser" />
+        <datalist id="browsers">
+          <option value="chrome"></option>
+          <option value="firefox"></option>
+          <option value="safari"></option>
+          <option value="edge"></option>
+          <option value="opera"></option>
+          <option value="samsung"></option>
+        </datalist>
+      </div>
+
+      <div>
+        <input type="reset" value="초기화" />
+        <input type="submit" value="제출" />
+      </div>
+    </form>
+  </body>
+</html>
