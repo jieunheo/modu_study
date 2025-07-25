@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>텍스트 꾸미기</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* color 속성 */
+      .color .keyword {
+        color: red;
+        border: 1px solid red;
+        background-color: aquamarine;
+      }
+      .color .hex {
+        color: #ff0000; /* 16진수 색상 코드 */
+        background-color: #74aac485; /* 투명도 설정가능 */
+      }
+
+      .color .rgb {
+        color: rgb(0, 0, 255);
+      }
+      .color .rgba {
+        color: rgba(255, 0, 0, 0.5);
+      }
+      .current-color {
+        color: hotpink; /* 부모 요소의 색상을 상속받음 */
+        border: 1px solid currentColor;
+        /* background-color: #74aac485; */
+      }
+
+      /* font family */
+      .pen {
+        font-family: "Nanum Pen Script", cursive;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&family=Playwrite+HU&display=swap");
+      .bit {
+        font-family: "Playwrite HU", cursive;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Pretendard-Regular";
+        /* src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff"); */
+        src: url("./fonts/Pretendard-Regular.woff") format("woff"); /* 로컬 폰트 사용 */
+        font-weight: 400;
+        font-style: normal;
+      }
+      .font-face {
+        font-family: "Pretendard-Regular";
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      /* font size */
+      .size {
+        font-size: 20px; /* 루트 요소(html)의 배수 rem */
+      }
+      .px {
+        font-size: 24px; /* 픽셀 단위 */
+      }
+      .em {
+        font-size: 1.5em; /* em 단위 */
+      }
+      .rem {
+        font-size: 1.5rem; /* rem 단위 */
+      }
+
+      /* rem으로 편리하게 작업하는 방법 */
+      html {
+        /* font-size: 10px; */
+        font-size: 62.5%; /* 16px * 62.5% => 10px */
+      }
+      body {
+        font-size: 1.6rem; /* 16px */
+      }
+      .text {
+        font-size: 3rem;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+      .weight {
+        font-family: "Noto Sans", sans-serif;
+      }
+
+      .weight-100 {
+        font-weight: 100;
+      }
+      .weight-200 {
+        font-weight: 200;
+      }
+      .weight-300 {
+        font-weight: 300;
+      }
+      .weight-400 {
+        font-weight: 400;
+      }
+      .weight-500 {
+        font-weight: 500;
+      }
+      .weight-600 {
+        font-weight: 600;
+      }
+      .weight-700 {
+        font-weight: 700;
+      }
+      .weight-800 {
+        font-weight: 800;
+      }
+      .weight-900 {
+        font-weight: 900;
+      }
+
+      .relative-weight {
+        font-weight: medium;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      .lighter {
+        font-weight: lighter;
+      }
+      .bolder {
+        font-weight: bolder;
+      }
+
+      /* text transform */
+      .upper {
+        text-transform: uppercase;
+      }
+      .lower {
+        text-transform: lowercase;
+      }
+      .capital {
+        text-transform: capitalize;
+      }
+      .first-letter::first-letter {
+        /* 텍스트의 첫 글자에 스타일을 줄 수 있는 가상 요소 */
+        text-transform: uppercase;
+      }
+
+      /* text-decoration */
+      .underline {
+        text-decoration: underline;
+      }
+      .overline {
+        text-decoration: 2px overline red;
+      }
+      .line-through {
+        text-decoration: line-through;
+      }
+      .dashed {
+        text-decoration: lime underline overline dashed;
+      }
+      .wavy {
+        text-decoration-color: royalblue;
+        text-decoration-line: line-through underline overline;
+        text-decoration-style: wavy;
+        text-decoration-thickness: 5px;
+
+        /* text-decoration: 5px wavy royalblue line-through underline overline; */
+      }
+      .hover:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="color">
+      <p class="keyword">키워드로 설정한 색상</p>
+      <p class="hex">Hex 코드로 설정한 색상</p>
+      <p class="rgb">RGB로 설정한 색상</p>
+      <p class="rgba">RGBA로 설정한 색상(투명도)</p>
+      <p class="current-color">currentColor</p>
+    </div>
+    <hr />
+    <div class="font">
+      <p class="pen">키워드로 설정한 색상</p>
+      <p class="bit">Bitcount</p>
+      <p class="font-face">Pretendard-Regular</p>
+    </div>
+    <hr />
+    <div class="size">
+      <p class="px">24px</p>
+      <p class="em">부모의 배수 em</p>
+      <p class="rem">루트요소(html)의 배수 rem</p>
+      <p class="text">30px을 만들고 싶어요</p>
+    </div>
+    <hr />
+    <div class="weight">
+      <p class="weight-100">100 - 가장 가벼운 굵기 (Thin)</p>
+      <p class="weight-200">200 - Extra Light</p>
+      <p class="weight-300">300 - Light</p>
+      <p class="weight-400">400 - Normal (기본값)</p>
+      <p class="weight-500">500 - Medium</p>
+      <p class="weight-600">600 - Semi Bold</p>
+      <p class="weight-700">700 - Bold</p>
+      <p class="weight-800">800 - Extra Bold</p>
+      <p class="weight-900">900 - Black (Heavy)</p>
+
+      <div class="relative-weight">
+        <p>부모 텍스트 (normal - 400)</p>
+        <p class="lighter">lighter - 부모보다 가벼운 굵기</p>
+        <p class="bolder">bolder - 부모보다 굵은 굵기</p>
+      </div>
+    </div>
+    <hr />
+    <div class="transform">
+      <p class="upper">hello world</p>
+      <p class="lower">hello world</p>
+      <p class="capital">hello world</p>
+      <p class="first-letter">hello world</p>
+    </div>
+    <hr />
+    <div class="decoration">
+      <p class="underline">밑줄이 그어진 텍스트</p>
+      <p class="overline">윗줄이 그어진 텍스트</p>
+      <p class="line-through">취소선이 그어진 텍스트</p>
+      <p class="dashed">대시 스타일의 장식</p>
+      <p class="wavy">웨이브 스타일의 다중 장식</p>
+      <p class="hover">호버</p>
+    </div>
+  </body>
+</html>

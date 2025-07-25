@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 상속</title>
+
+    <style>
+      /*
+      텍스트 관련 속성들(color, font-family, font-size 등)은 상속됨
+      레이아웃 관련 속성들(width, height, margin, padding, border 등)은 상속되지 않음
+       */
+      p {
+        color: red;
+        border: 1px solid black;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      span {
+        /* color: aqua; */
+        border: inherit;
+        color: lawngreen;
+        font-size: initial;
+        font-weight: unset; /* 상속시 inherit 과 같음 */
+        border: unset; /* 미상속시 initial 과 같음 */
+
+        /* all의 위쪽 속성에 대해서만 적용 */
+        /*all: inherit;*/ /* 모든 속성을 상속받음 */
+        all: initial; /* 모든 속성을 초기값으로 설정 */
+        /*all: unset;*/ /* 모든 속성을 상속받거나 초기값으로 설정 */
+
+        color: indianred;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      허지은 <span>Jieun Heo <strong>beaksu</strong></span>
+    </p>
+  </body>
+</html>

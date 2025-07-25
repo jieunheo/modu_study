@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택자 기초</title>
+
+    <style>
+      /* *: 전체 선택자 */
+      * {
+        /* 초기화 용도로 사용 */
+        margin: 0;
+      }
+
+      /* h2, h3, p 등: 태그 선택자 */
+      h2 {
+        color: pink;
+      }
+      button {
+        padding: 6px;
+        background-color: lightblue;
+        border: 1px solid black;
+        border-radius: 20px;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* #id: 아이디 선택자 */
+      /* 재사용성이 떨어짐 */
+      #title2 {
+        color: blue;
+      }
+
+      /* .class: 클래스 선택자 */
+      .font-blue {
+        background-color: skyblue;
+      }
+      .list-item {
+        font-weight: 700;
+        color: seagreen;
+      }
+
+      /* []: 속성 선택자 */
+      [type] {
+        border: 1px solid red;
+      }
+      [id] {
+        text-decoration: underline;
+      }
+
+      /* 속성값 일치 */
+      [class="font-blue"] {
+        border: 2px solid yellow;
+      }
+      /* 속성값 포함 */
+      [class*="font-blue"] {
+        outline: 2px solid purple;
+      }
+
+      /* ,: 그룹 선택자 */
+      section,
+      div,
+      li,
+      #title3 {
+        border: 3px solid green;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <!--
+      id, class: 문자, 숫자, 하이픈(-), 언더스코어(_)만 사용 
+      숫자로 시작하면 오류
+      
+      일반적으로 class 이름은 소문자, 하이픈(-)을 사용
+      ex) [기능-UI요소], login-button, login-cont, name-input, profile-card
+      -->
+      <h2 id="title2">Chapter10</h2>
+      <h3 id="title3">10.1 선택자 기초</h3>
+      <p class="font-blue">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+        veritatis quidem eius repellat blanditiis. Magnam odit consectetur
+        recusandae, tempora impedit officiis adipisci expedita quibusdam
+        dignissimos fugiat labore, laudantium beatae iste.
+      </p>
+      <button type="button">버튼1</button>
+      <button type="submit">버튼2</button>
+      <button>버튼3</button>
+      <a href="">링크1</a>
+      <a href="">링크2</a>
+      <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li class="font-blue list-item">item 3</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Chapter11</h2>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
+        numquam tenetur delectus doloremque voluptate vero quae nobis cumque
+        quaerat omnis velit quos iusto nesciunt, enim voluptatibus. Porro
+        reprehenderit nam voluptatibus.
+      </div>
+    </section>
+  </body>
+</html>

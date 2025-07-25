@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>복합 선택자</title>
+
+    <style>
+      /* section p: section의 모든 자손인 p */
+      section p {
+        background-color: lightyellow;
+      }
+
+      /* section > p: section의 직계 자손(자식)인 p */
+      section > p {
+        border: 1px solid red;
+      }
+
+      /* section ~ p: section의 형제(일반형제)인 p */
+      section ~ p {
+        background: green;
+      }
+
+      /* section + p: section의 인접형제인 p*/
+      section + p {
+        color: yellow;
+      }
+
+      div p {
+        color: green;
+      }
+      /* 요즘 CSS에 추가된 중첩 기능 (2단까지만 사용하는 것을 권장) */
+      div {
+        p {
+          border: 2px solid navy;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p>Lorem ipsum dolor sit amet</p>
+    <p>Lorem ipsum dolor sit amet</p>
+    <p>Lorem ipsum dolor sit amet</p>
+    <section>
+      <div>
+        <p>Lorem ipsum dolor sit amet</p>
+      </div>
+      <p>Lorem ipsum dolor sit amet</p>
+      <p>Lorem ipsum dolor sit amet</p>
+    </section>
+    <p>Lorem ipsum dolor sit amet</p>
+    <p>Lorem ipsum dolor sit amet</p>
+    <p>Lorem ipsum dolor sit amet</p>
+  </body>
+</html>

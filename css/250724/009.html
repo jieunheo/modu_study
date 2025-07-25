@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택자 우선순위</title>
+
+    <style>
+      /*
+      inline-style	                    1000점
+      id #	                             100점
+      class ., 속성 선택자, 가상 클래스   	10점
+      타입 선택자, 가상요소 선택자	         1점
+      전체 선택자 *	                        0점
+      */
+      /* 1. 후자 우선의 원칙 */
+      p {
+        color: blue;
+        font-size: 24px;
+        font-weight: 700;
+        color: red;
+      }
+      p {
+        color: green;
+      }
+
+      /* 2. 구체성(명시도) 원칙 */
+      .text {
+        /* 구체성: 10 */
+        color: pink;
+      }
+
+      .text-cont .text {
+        /* 구체성: 10 + 10 */
+        color: cyan;
+      }
+
+      #container {
+        /* 상속 0점 */
+        color: royalblue;
+      }
+
+      #container .text {
+        /* 구체성 100 + 10 */
+        color: hotpink;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Lorem ipsum dolor sit amet</p>
+    <div id="container" class="text-cont">
+      <p class="text">Lorem ipsum dolor sit amet</p>
+    </div>
+  </body>
+</html>

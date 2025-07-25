@@ -1,0 +1,9 @@
+/* css 파일 안에 css 포함하기 */
+@import url("./reset.css");
+@import url("./font.css");
+@import url("./layout.css");
+@import url("./main.css");
+
+p {
+  color: #333;
+}
