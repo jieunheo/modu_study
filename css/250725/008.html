@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>박스 모델</title>
+
+    <style>
+      .parent {
+        background-color: pink;
+        padding: 10px;
+      }
+      .child {
+        width: auto; /* 부모 기준 */
+        height: 200px; /* 자식 기준 */
+        background-color: aqua;
+        border: 1px solid black;
+        padding: 10px; /* border 안쪽 여백 */
+        margin: 20px; /* border 바깥 여백 */
+      }
+
+      /* 패딩 퀴즈 */
+      .box1 {
+        padding: 20px;
+        background-color: antiquewhite;
+      }
+      .box2 {
+        padding: 20px 15px;
+        background-color: blueviolet;
+      }
+      .box3 {
+        padding: 30px 20px 10px;
+        background-color: yellowgreen;
+      }
+      .box4 {
+        /* padding: 20px 20px 20px 10px; */
+        padding: 20px;
+        padding-left: 10px;
+        background-color: violet;
+      }
+
+      /* margin */
+      .box1,
+      .box2,
+      .box3,
+      .box4 {
+        margin: 20px;
+        margin: 10px 20px;
+        margin: 10px 20px 30px;
+        margin: 10px 20px 30px 40px;
+      }
+
+      .margin-parent {
+        background-color: cadetblue;
+        margin: 20px;
+        overflow: hidden; /* 부모 자식 간의 마진병합 해결방법 */
+      }
+      .margin-child {
+        background-color: darkgreen;
+        width: 100px;
+        height: 100px;
+        margin: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
+        consequuntur possimus nemo necessitatibus quisquam quasi suscipit
+        dolorum voluptas accusamus, harum ducimus? Vel quis harum cupiditate
+        tempore consequatur pariatur iste possimus!
+      </div>
+    </div>
+
+    <!-- 패딩 퀴즈 -->
+    <div class="box1">네 면 모두 20px</div>
+    <div class="box2">상하 20px 좌우 15px</div>
+    <div class="box3">좌우 20px, 위 30px, 아래 10px</div>
+    <div class="box4">왼쪽 여백 10px, 나머지 20px</div>
+
+    <div class="margin-parent">
+      <div class="margin-child"></div>
+    </div>
+  </body>
+</html>

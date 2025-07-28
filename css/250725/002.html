@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>단위</title>
+
+    <style>
+      /* 절대 길이 단위: px */
+      /* 상대 길이 단위: %, vw, vh, em, rem */
+      .parent {
+        width: 150px;
+        height: 100px;
+        font-size: 40px;
+        background-color: lightgray;
+      }
+
+      .child {
+        width: 50vw;
+        height: 50%;
+        min-height: 100vh;
+        /*font-size: 10%; 10px 이상 유지 권장 */
+        background-color: skyblue;
+
+        /* font size 기준 */
+        width: 5em; /* 본인 font-size 값이 없으면 부모 기준 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child">폰트 사이즈를 확인해봅시다</div>
+    </div>
+  </body>
+</html>

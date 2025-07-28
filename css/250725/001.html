@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>텍스트 꾸미기2</title>
+
+    <style>
+      /* text shadow
+      텍스트에 그림자 효과를 추가 */
+      .shadow {
+        /* offset-x, offset-y, blur-radius 순서로 작성*/
+        .simple {
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .multiple {
+          text-shadow: 4px 2px 2px red, 0 0 1em blue, -2px -4px 0.2em green;
+        }
+
+        /* 양각 효과 - 텍스트가 튀어나와 보임 */
+        .emboss {
+          color: #888;
+          text-shadow: -2px -2px 4px rgba(0, 0, 0, 0.5),
+            1px 1px 1px rgba(255, 255, 255, 0.8);
+        }
+
+        /* 외곽선 효과 */
+        .outline {
+          color: white;
+          text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+            1px 1px 0 #000;
+        }
+
+        /* 네온 글로우 효과 */
+        .glow {
+          color: #fff;
+          text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6,
+            0 0 20px #0073e6, 0 0 25px #0073e6;
+        }
+
+        /* 레트로 3D 효과 */
+        .retro {
+          color: #fff;
+          text-shadow: 2px 2px 0px #ff0000, 4px 4px 0px #0000ff;
+        }
+      }
+
+      /* text align
+      내부의 인라인 콘텐츠(텍스트, 인라인 요소)의 정렬에 영향 */
+      .align {
+        text-align: center;
+
+        .box {
+          width: 300px;
+          background-color: skyblue;
+        }
+
+        .text {
+          background-color: pink;
+        }
+
+        .ko {
+          text-align: justify;
+        }
+      }
+
+      /* vertical-align
+      인라인/인라인 블록 요소나 테이블 셀 요소의 수직 정렬을 조정
+      블록 레벨 요소에는 적용되지 않는다 */
+      .vertical {
+        div:not([class]) {
+          line-height: 2.5;
+          border: 1px dashed gray;
+          margin: 10px;
+        }
+
+        .box {
+          line-height: 1;
+          background: yellow;
+          display: inline; /* block에는 적용되지 않습니다 */
+        }
+
+        .baseline {
+          vertical-align: baseline;
+        }
+        .top {
+          vertical-align: top;
+        }
+        .middle {
+          vertical-align: middle;
+        }
+        .bottom {
+          vertical-align: bottom;
+        }
+        .text-top {
+          vertical-align: text-top;
+        }
+        .text-bottom {
+          vertical-align: text-bottom;
+        }
+
+        /* 이미지를 사용했을 때 위 아래 여백 생기는 이슈 해결 */
+        span.img-cont {
+          background: hotpink;
+        }
+        span.img-cont img {
+          vertical-align: bottom;
+        }
+      }
+
+      /* line-height
+      텍스트 줄 사이의 간격, 즉 행간을 설정
+      px을 사용하기 보다는 em이나 rem을 사용하여 폰트 특성에 더 유연하게 대응할 수 있다 */
+      .lineheight {
+        .normal-line-height {
+          line-height: normal;
+        }
+        .increased-line-height {
+          /* em, % 계산된 line-height가 상속 */
+          /* 숫자만 쓰는 경우에는 자식요소 font-size에 맞춰 설정 */
+          line-height: 2;
+        }
+      }
+
+      /* letter-spacing
+      글자 사이의 간격, 즉 자간을 조절
+      텍스트의 밀도를 조정하거나 특별한 시각적 효과
+      길이 단위(px, em 등)로 지정하며, 음수 값도 사용할 수 있다 */
+      .spacing {
+        .normal-spacing {
+          letter-spacing: normal;
+        }
+        .wide-spacing {
+          letter-spacing: 0.3em;
+        }
+        .narrow-spacing {
+          letter-spacing: -0.05em;
+        }
+      }
+
+      /* text-indent
+      텍스트가 시작하기 전 빈 공간, 즉 들여쓰기를 설정
+      블록 요소에 적용할 수 있으며, 첫 번째 줄에만 들여쓰기를 할 수 있다 */
+      .indent {
+        p {
+          background-color: #f0f0f0;
+          padding: 10px;
+          margin-bottom: 10px;
+        }
+        .indent-em {
+          text-indent: 2em;
+        }
+        .indent-px {
+          text-indent: 40px;
+        }
+        .indent-percent {
+          text-indent: 15%;
+        }
+        .indent-negative {
+          text-indent: -10px;
+        }
+      }
+
+      /* word-break
+      텍스트가 자신의 콘텐츠 박스 밖으로 넘칠 경우 줄바꿈 동작을 지정
+      단어의 끊어짐을 제어하여 텍스트 레이아웃을 최적화하는 데 도움 */
+      .break {
+        .box {
+          width: 200px;
+          margin: 20px;
+          padding: 20px;
+          background-color: #f0f0f0;
+        }
+
+        .normal {
+          word-break: normal;
+        }
+
+        .break-all {
+          word-break: break-all;
+        }
+
+        .keep-all {
+          word-break: keep-all;
+        }
+
+        .ko {
+          color: #0066cc;
+        }
+
+        .overflow-wrap {
+          overflow-wrap: break-word;
+          word-break: break-all;
+        }
+      }
+
+      /* text-overflow
+      말줄임표 */
+      .overflow {
+        p {
+          background-color: #f0f0f0;
+          margin-bottom: 15px;
+          width: 300px;
+        }
+
+        /* 한 줄 말줄임 - clip */
+        .overflow-clip {
+          overflow: hidden;
+          white-space: nowrap; /* 텍스트의 공백을 만났을때 줄바꿈을 하지 않습니다. */
+          text-overflow: clip; /* 요소의 크기를 넘친 텍스트를 자릅니다. */
+        }
+
+        /* 한 줄 말줄임 - ellipsis */
+        .ellipsis {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; /* 요소의 크기를 넘친 텍스트를 말줄임 처리합니다. */
+        }
+
+        /* 여러 줄 말줄임 */
+        .multi-ellipsis {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3; /* 블록 컨텐츠의 라인 수를 제한하는 속성입니다.*/
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shadow">
+      <p class="simple">간단한 그림자</p>
+      <p class="multiple">다중 그림자 효과</p>
+
+      <p class="emboss">양각 효과</p>
+      <p class="outline">외곽선 효과</p>
+      <p class="glow">네온 글로우 효과</p>
+      <p class="retro">레트로 3D 효과</p>
+    </div>
+    <hr />
+    <div class="align">
+      <div class="box">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, modi
+        alias quaerat distinctio saepe magnam, tenetur maxime quia similique
+        dignissimos totam libero maiores cumque officiis voluptates ipsa aliquam
+        asperiores ex.
+      </div>
+      <span class="text"
+        >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et fugit
+        accusamus consequatur harum voluptas voluptatibus excepturi inventore
+        porro animi sapiente? Sit ipsa tempora sapiente ea rerum, error incidunt
+        autem consectetur!</span
+      >
+      <div class="ko">
+        베일이긴 조아일나하다 두아일뮨이세요 피있고 옹툴지결 줌효욜질다
+        고르티노는 안걸웝르에게. 시납알흐녀냥으라 가 뺀운끈헙을 졍애깰건아라고
+        이덕룽몬에서 뇰극으로, 도마아침으로 댄푸띤에 감가두류어요 우음즈져가
+        담민이. 솔다산 부촌으로 손직미타가 영으 나들티가. 군궁이 닌모주젠
+        떠해블뎄노의 븐스니옥다 볘디선으럴. 자모아천눠미연후윤 사방지기만
+        쟹액이방이, 둑츤자에게 송가처려에. 소자녀다므라우 터반힐멥 쟁으지데
+        에진다 상으롳갼언 곡아성낼깅며. 바림시의 기로램피가 악믈한
+        쥬놔니머이락이 지고면서 할솤일심올 일왈서사가 으녀괼에게 궁오갬렀
+        니다겔이. 헉건에훅고 먜에절 이라나 웅게으민윽이 앙부궈까지.
+      </div>
+    </div>
+    <hr />
+    <div class="vertical">
+      <div>
+        텍스트
+        <div class="box baseline">baseline</div>
+      </div>
+      <div>
+        텍스트
+        <div class="box top">top</div>
+      </div>
+      <div>
+        텍스트
+        <div class="box middle">middle</div>
+      </div>
+      <div>
+        텍스트
+        <div class="box bottom">bottom</div>
+      </div>
+      <div>
+        텍스트
+        <div class="box text-top">text-top</div>
+      </div>
+      <div>
+        텍스트
+        <div class="box text-bottom">text-btm</div>
+      </div>
+
+      <div>
+        텍스트
+        <div class="box baseline">baseline</div>
+        <div class="box top">top</div>
+        <div class="box middle">middle</div>
+        <div class="box bottom">bottom</div>
+        <div class="box text-top">text-top</div>
+        <div class="box text-bottom">text-btm</div>
+      </div>
+
+      <span class="img-cont">
+        <img src="./img/weniv-binky.png" alt="위니브 빙키" />
+      </span>
+    </div>
+    <hr />
+    <div class="lineheight">
+      <p class="normal-line-height">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro unde
+        minus eum enim est similique corporis asperiores animi beatae? Mollitia
+        ipsum ducimus consectetur perspiciatis laboriosam. Nobis nisi quaerat
+        velit amet.
+      </p>
+      <p class="increased-line-height">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro unde
+        minus eum enim est similique corporis asperiores animi beatae? Mollitia
+        ipsum ducimus consectetur perspiciatis laboriosam. Nobis nisi quaerat
+        velit amet.
+      </p>
+    </div>
+    <hr />
+    <div class="spacing">
+      <p class="normal-spacing">일반 자간</p>
+      <p class="wide-spacing">넓은 자간</p>
+      <p class="narrow-spacing">좁은 자간</p>
+    </div>
+    <hr />
+    <div class="indent">
+      <p class="indent-em">
+        em 단위로 들여쓰기 적용한 문단입니다. em은 현재 폰트 크기를 기준으로
+        합니다. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id,
+        fugit non corporis officia eum molestias excepturi sunt fuga laboriosam
+        laborum eius cupiditate, porro esse odit ab expedita magnam nostrum
+        maiores.
+      </p>
+      <p class="indent-px">
+        px 단위로 들여쓰기 적용한 문단입니다. 픽셀 단위는 고정된 크기입니다.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id, fugit non
+        corporis officia eum molestias excepturi sunt fuga laboriosam laborum
+        eius cupiditate, porro esse odit ab expedita magnam nostrum maiores.
+      </p>
+      <p class="indent-percent">
+        % 단위로 들여쓰기 적용한 문단입니다. %는 컨테이너 요소의 너비에
+        비례합니다. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        Id, fugit non corporis officia eum molestias excepturi sunt fuga
+        laboriosam laborum eius cupiditate, porro esse odit ab expedita magnam
+        nostrum maiores.
+      </p>
+      <p class="indent-negative">
+        음수 값으로 들여쓰기(내어쓰기)가 적용된 문단입니다. 텍스트가 왼쪽으로
+        이동합니다. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        Id, fugit non corporis officia eum molestias excepturi sunt fuga
+        laboriosam laborum eius cupiditate, porro esse odit ab expedita magnam
+        nostrum maiores.
+      </p>
+    </div>
+    <hr />
+    <div class="break">
+      <div class="box normal">
+        <h3>normal</h3>
+        <p class="en">
+          This is a long English text with
+          verylongwordthatwilloverflowthecontainer and 영어와 한글이 섞여 있는
+          텍스트입니다. 매우매우매우매우긴한글은 어떻게 보일까요?
+        </p>
+        <p class="ko">
+          이것은 매우매우매우매우긴한글단어가있는텍스트입니다. 줄바꿈이 어떻게
+          처리되는지 확인해보세요.
+        </p>
+      </div>
+
+      <div class="box break-all">
+        <h3>break-all</h3>
+        <p class="en">
+          This is a long English text with
+          verylongwordthatwilloverflowthecontainer and 영어와 한글이 섞여 있는
+          텍스트입니다. 매우매우매우매우긴한글은 어떻게 보일까요?
+        </p>
+        <p class="ko">
+          이것은 매우매우매우매우긴한글단어가있는텍스트입니다. 줄바꿈이 어떻게
+          처리되는지 확인해보세요.
+        </p>
+      </div>
+
+      <div class="box keep-all">
+        <h3>keep-all</h3>
+        <p class="en">
+          This is a long English text with
+          verylongwordthatwilloverflowthecontainer and 영어와 한글이 섞여 있는
+          텍스트입니다. 매우매우매우매우긴한글은 어떻게 보일까요?
+        </p>
+        <p class="ko">
+          이것은 매우매우매우매우긴한글단어가있는텍스트입니다. 줄바꿈이 어떻게
+          처리되는지 확인해보세요.
+        </p>
+      </div>
+
+      <div class="box overflow-wrap">
+        <h3>keep-all</h3>
+        <p class="en">
+          This is a long English text with
+          verylongwordthatwilloverflowthecontainer and 영어와 한글이 섞여 있는
+          텍스트입니다. 매우매우매우매우긴한글은 어떻게 보일까요?
+        </p>
+        <p class="ko">
+          이것은 매우매우매우매우긴한글단어가있는텍스트입니다. 줄바꿈이 어떻게
+          처리되는지 확인해보세요.
+        </p>
+      </div>
+    </div>
+    <hr />
+    <div class="overflow">
+      <h3>원본 텍스트</h3>
+      <p class="original">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, ad,
+        autem quaerat sed impedit cupiditate tenetur recusandae facere, alias ab
+        nihil nisi eligendi eaque ea molestiae dolore accusantium repellat
+        maiores?
+      </p>
+
+      <h3>text-overflow: clip (한 줄)</h3>
+      <p class="overflow-clip">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, ad,
+        autem quaerat sed impedit cupiditate tenetur recusandae facere, alias ab
+        nihil nisi eligendi eaque ea molestiae dolore accusantium repellat
+        maiores?
+      </p>
+
+      <h3>text-overflow: ellipsis (한 줄 말줄임)</h3>
+      <p class="ellipsis">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, ad,
+        autem quaerat sed impedit cupiditate tenetur recusandae facere, alias ab
+        nihil nisi eligendi eaque ea molestiae dolore accusantium repellat
+        maiores?
+      </p>
+
+      <h3>여러 줄 말줄임 (3줄)</h3>
+      <p class="multi-ellipsis">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, ad,
+        autem quaerat sed impedit cupiditate tenetur recusandae facere, alias ab
+        nihil nisi eligendi eaque ea molestiae dolore accusantium repellat
+        maiores? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Architecto aperiam, unde quam quae earum perspiciatis voluptates esse
+        fuga ratione deserunt.
+      </p>
+    </div>
+  </body>
+</html>

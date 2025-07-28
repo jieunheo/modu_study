@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가상 선택자</title>
+
+    <style>
+      .link a:link {
+        /* 방문하지 않았을 때 */
+        color: violet;
+      }
+      .weniv:visited {
+        /* 방문했을 때 */
+        color: red;
+      }
+
+      button {
+        padding: 6px 12px;
+        background-color: skyblue;
+        border: 1px solid black;
+      }
+      button:hover {
+        /* 마우스 올렸을 때 */
+        background-color: green;
+      }
+      button:active {
+        /* 마우스로 누르고 있을 때 */
+        background-color: red;
+      }
+
+      .focus-inp:focus {
+        /* 포커스가 갔을 때 */
+        border: 1px solid red;
+      }
+
+      /* 가상요소
+      content: 필수 속성
+      빈태그 img br input 에는 적용할 수 없다 */
+      .cont {
+        border: 1px solid red;
+        background-color: pink;
+      }
+      .cont::before {
+        content: "(";
+        color: aqua;
+      }
+      .cont::after {
+        content: ")";
+        color: blue;
+      }
+
+      .list li {
+        padding-left: 8px;
+      }
+      .list li::marker {
+        content: "ex)";
+      }
+      .list li::before {
+        content: "";
+        margin-right: 8px;
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        border: 1px solid yellowgreen;
+        color: aqua;
+      }
+
+      /* marker로 커스텀 리스트 스타일링 */
+      /* .custom-bullets li::marker {
+        content: "🍎";
+      } */
+      /* before로 커스텀 리스트 스타일링 */
+      .custom-bullets li {
+        list-style: none;
+      }
+      .custom-bullets li::before {
+        content: "🍎";
+        margin-right: 8px;
+      }
+
+      /* placeholder */
+      .input-placeholder::placeholder {
+        color: red;
+        font-size: 10px;
+      }
+
+      /* first-child, last-child, nth-child */
+      .first-last {
+        li:first-child {
+          border: 1px solid yellowgreen;
+        }
+        li:last-child {
+          color: blue;
+        }
+        li:nth-child(3) {
+          color: cyan;
+        }
+        li:nth-child(odd) {
+          font-weight: 900;
+        }
+        li:nth-child(even) {
+          font-weight: 100;
+        }
+        li:nth-child(4n) {
+          background-color: antiquewhite;
+        }
+        li:nth-child(-n + 3) {
+          background-color: tomato;
+        }
+        li:nth-child(n + 8) {
+          background-color: darkcyan;
+        }
+      }
+
+      /* nth-of-type */
+      .nth-of-type {
+        h2:nth-of-type(2) {
+          color: green;
+        }
+        /* type 중에서 n번째 */
+        p:nth-of-type(1) {
+          color: skyblue;
+        }
+        /* 전체 중에서 n번째 */
+        p:nth-child(1) {
+          color: skyblue;
+        }
+      }
+      /* only-of-type
+      같은 계층에 동일한 유형의 형제가 없는, 형제 요소 중 유일하게 사용된 태그 */
+      .only-of-type :only-of-type {
+        border: 1px solid teal;
+      }
+
+      /* not */
+      li:not(:first-child) {
+        list-style-type: decimal;
+      }
+
+      /* is */
+      .is-where :is(h1, h2, h3) a {
+        /* 구체성 1점 */
+        color: darkgoldenrod;
+      }
+      /* where - 기본 스타일 작성시 사용 */
+      .is-where :where(h1, h2, h3) a {
+        /* 구체성 0점 */
+        color: green;
+      }
+      /* has - 조건부 스타일링 */
+      .has:has(h2) {
+        border: 3px solid darkkhaki;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="link">
+      <a class="weniv" href="http://weniv.co.kr">위니브 메인페이지</a>
+      <a class="naver" href="http://naver.com">네이버 메인페이지</a>
+    </div>
+    <hr />
+    <button>Button</button>
+    <hr />
+    <div>
+      <input type="text" class="focus-inp" />
+      <input type="text" class="focus-inp" />
+      <input type="text" class="focus-inp" />
+    </div>
+    <hr />
+    <p class="cont">
+      <!-- brfore -->
+      Content Content
+      <!-- after -->
+    </p>
+    <hr />
+    <ul class="list">
+      <li>item1</li>
+      <li>item2</li>
+      <li>item3</li>
+      <li>item4</li>
+      <li>item5</li>
+    </ul>
+    <hr />
+    <ul class="custom-bullets">
+      <li>사과</li>
+      <li>바나나</li>
+      <li>오렌지</li>
+    </ul>
+    <hr />
+    <input
+      type="text"
+      class="input-placeholder"
+      placeholder="메시지를 입력하세요"
+    />
+    <hr />
+    <div class="first-last">
+      <ul class="">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+        <li>item6</li>
+        <li>item7</li>
+        <li>item8</li>
+        <li>item9</li>
+      </ul>
+      <ul class="">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+        <li>item6</li>
+        <li>item7</li>
+        <li>item8</li>
+        <li>item9</li>
+      </ul>
+    </div>
+    <hr />
+    <div class="nth-of-type">
+      <h2>첫 번째 제목</h2>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae
+        numquam porro quam explicabo facere, nihil deleniti id itaque ex quod ad
+        beatae qui. Fugit nam corrupti odit facere cum velit.
+      </p>
+      <h2>두 번째 제목</h2>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae
+        numquam porro quam explicabo facere, nihil deleniti id itaque ex quod ad
+        beatae qui. Fugit nam corrupti odit facere cum velit.
+      </p>
+    </div>
+    <hr />
+    <div class="only-of-type">
+      <h1><a href="#">h1의 링크</a><a href="#">h1의 링크</a></h1>
+      <h2><a href="#">h2의 링크</a></h2>
+      <h3><a href="#">h3의 링크</a></h3>
+      <h3><a href="#">h3의 링크</a></h3>
+      <div>
+        <a href="#">div의 링크</a>
+      </div>
+    </div>
+    <hr />
+    <section class="is-where">
+      <h1><a href="#">h1의 링크</a></h1>
+      <h2><a href="#">h2의 링크</a></h2>
+      <h3><a href="#">h3의 링크</a></h3>
+      <div>
+        <a href="#">div의 링크</a>
+      </div>
+    </section>
+    <hr />
+    <section class="has">
+      <h1><a href="#">h1의 링크</a></h1>
+      <h2><a href="#">h2의 링크</a></h2>
+      <h3><a href="#">h3의 링크</a></h3>
+      <div>
+        <a href="#">div의 링크</a>
+      </div>
+    </section>
+  </body>
+</html>

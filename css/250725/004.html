@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>리스트 스타일</title>
+
+    <style>
+      /* list-style */
+      /* list-style-type, list-style-position, list-style-image */
+      ul {
+        list-style-type: "- "; /* 기본값 disc */
+        list-style-position: inside; /* 기본값 outside */
+        list-style-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' height='20' width='20' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'><polyline points='20 6 9 17 4 12'></polyline></svg>"); /* 이미지 사이즈 조절 안됨 */
+
+        background-color: aquamarine;
+        width: 300px;
+      }
+      ol {
+        list-style-type: square; /* 기본값 decimal */
+        list-style-position: outside; /* 기본값 outside */
+        list-style-type: emoji-numbers;
+
+        background-color: coral;
+        width: 300px;
+      }
+      li {
+        border: 1px solid red;
+      }
+
+      /* 새로 나온 기능으로 지원하지 않는 브라우저가 있음 */
+      @counter-style emoji-numbers {
+        system: fixed;
+        symbols: "🙍" "👩‍👧" "👨‍👨‍👧" "👨‍👩‍👦‍👦";
+        suffix: "♥️";
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <!--li{item $}*5-->
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+      <li>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ipsam
+        repellat reiciendis cupiditate expedita aperiam numquam quam vitae quae
+        reprehenderit provident inventore assumenda dolorem incidunt, minima
+        voluptas? Quis, aspernatur libero?
+      </li>
+    </ul>
+    <ol>
+      <!--li{item $}*5-->
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+      <li>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ipsam
+        repellat reiciendis cupiditate expedita aperiam numquam quam vitae quae
+        reprehenderit provident inventore assumenda dolorem incidunt, minima
+        voluptas? Quis, aspernatur libero?
+      </li>
+    </ol>
+  </body>
+</html>

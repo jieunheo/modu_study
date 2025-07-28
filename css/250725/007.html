@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 변수</title>
+
+    <style>
+      :root {
+        /* 이름을 작성할 때는 하이픈(-) 두개 쓰고 이름: 지정할 값 */
+        --primary-color: #2e6ff2;
+        --background-color: #fff;
+        --gray-lv1-color: #f3f5fa;
+
+        --shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+      }
+      [data-theme="dark"] {
+        --primary-color: #234da1;
+        --background-color: #000;
+      }
+      body {
+        background-color: var(--background-color);
+      }
+      p {
+        color: var(--primary-color);
+      }
+      button {
+        padding: 6px 12px;
+        background-color: var(--primary-color);
+        border-radius: 10px;
+        border: 1px solid var(--gray-lv1-color);
+        box-shadow: var(--shadowLg, 0 0 8px rgba(0, 0, 0, 0.5));
+      }
+    </style>
+  </head>
+  <body>
+    <p>Hello world</p>
+    <button>Hello world</button>
+  </body>
+</html>
