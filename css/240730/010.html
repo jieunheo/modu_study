@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>background 단축</title>
+
+    <style>
+      .box {
+        border: 2px solid #000;
+        height: 50vh;
+
+        /* 단축속성 */
+        /* 배경색 royalblue, 이미지는 weniv-wade.png, 반복없이 화면 가득 */
+        /* 순서 고정: position / size. size는 단독 사용 불가 */
+        background: royalblue url(./images/weniv-wade.png) no-repeat center /
+          cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

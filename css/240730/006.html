@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>overflow</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      div {
+        border: 3px solid red;
+        width: 200px;
+        height: 100px;
+        margin: 10px;
+      }
+
+      .hidden {
+        overflow: hidden;
+      }
+
+      .scroll {
+        overflow: scroll;
+
+        overflow-x: hidden;
+        overflow-y: scroll;
+
+        white-space: nowrap; /* 줄바꿈 방지 */
+        overflow-x: scroll;
+        overflow-y: hidden;
+      }
+
+      .auto {
+        overflow: auto;
+      }
+
+      .ko-text {
+        word-break: keep-all; /* 단어 단위 */
+        /* 단어가 너무 길어서 부모를 넘어갈 때 줄바꿈 */
+        overflow-wrap: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hidden">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum minima, nulla
+      non voluptas sunt dicta doloribus praesentium ipsum iste corrupti vero,
+      explicabo, deleniti tempore commodi. Obcaecati labore dolor autem vitae!
+    </div>
+    <div class="hidden ko-text">
+      중앙선거관리위원회는 법령의 범위안에서 선거관리·국민투표관리 또는
+      정당사무에 관한 규칙을 제정할 수 있으며, 법률에 저촉되지 아니하는
+      범위안에서 내부규율에 관한 규칙을 제정할 수 있다. 대한민국의 영토는
+      한반도와 그 부속도서로 한다. 타인의 범죄행위로 인하여 생명·신체에 대한
+      피해를 받은 국민은 법률이 정하는 바에 의하여 국가로부터 구조를 받을 수
+      있다.
+    </div>
+    <div class="scroll">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum minima, nulla
+      non voluptas sunt dicta doloribus praesentium ipsum iste corrupti vero,
+      explicabo, deleniti tempore commodi. Obcaecati labore dolor autem vitae!
+    </div>
+    <div class="scroll">
+      중앙선거관리위원회는 법령의 범위안에서 선거관리·국민투표관리 또는
+      정당사무에 관한 규칙을 제정할 수 있으며, 법률에 저촉되지 아니하는
+      범위안에서 내부규율에 관한 규칙을 제정할 수 있다. 대한민국의 영토는
+      한반도와 그 부속도서로 한다. 타인의 범죄행위로 인하여 생명·신체에 대한
+      피해를 받은 국민은 법률이 정하는 바에 의하여 국가로부터 구조를 받을 수
+      있다.
+    </div>
+    <div class="auto">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum minima, nulla
+    </div>
+    <div class="auto">
+      중앙선거관리위원회는 법령의 범위안에서 선거관리·국민투표관리 또는
+      정당사무에 관한 규칙을 제정할 수 있으며, 법률에 저촉되지 아니하는
+      범위안에서 내부규율에 관한 규칙을 제정할 수 있다. 대한민국의 영토는
+      한반도와 그 부속도서로 한다. 타인의 범죄행위로 인하여 생명·신체에 대한
+      피해를 받은 국민은 법률이 정하는 바에 의하여 국가로부터 구조를 받을 수
+      있다.
+    </div>
+  </body>
+</html>

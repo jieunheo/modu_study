@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .parent {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .parent div {
+        width: 100px;
+        height: 100px;
+        background-color: blueviolet;
+      }
+      .box1 {
+        border-radius: 50%;
+      }
+      .box2 {
+        border-radius: 10%;
+      }
+      .box3 {
+        /* border-radius: 100% 0 0; */
+        border-top-left-radius: 100%;
+      }
+      .box4 {
+        /* border-radius: 100% 0; */
+        border-top-left-radius: 100%;
+        border-bottom-right-radius: 100%;
+      }
+      .box5 {
+        /* border-radius: 0 50%; */
+        border-top-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+      }
+      .box6 {
+        height: 50px !important;
+        /* border-radius: 50px 50px 0 0; */
+        border-top-right-radius: 50px;
+        border-top-left-radius: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
+      <div class="box4"></div>
+      <div class="box5"></div>
+      <div class="box6"></div>
+    </div>
+  </body>
+</html>

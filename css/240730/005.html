@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>border</title>
+
+    <style>
+      div {
+        background-color: pink;
+        width: 150px;
+        height: 100px;
+        margin: 20px auto;
+      }
+
+      .box1 {
+        border: 1px solid red;
+
+        border-width: 1px;
+        border-width: 5px 1px; /* padding, margin과 동일 */
+
+        border-style: dashed solid; /* padding, margin과 동일 */
+
+        border-color: red;
+
+        border-top: 5px solid #000;
+        border-right: 5px dotted yellowgreen;
+      }
+
+      .box1 {
+        padding: 20px;
+      }
+
+      div {
+        box-sizing: content-box; /* width 값이 콘텐츠 요소만 */
+        box-sizing: border-box; /* width 값이 콘텐츠 요소 + padding + border 까지 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+  </body>
+</html>

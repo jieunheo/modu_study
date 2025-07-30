@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>boder radius</title>
+
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        margin: 20px auto;
+
+        border-radius: 10px; /* padding, margin 과 같음 */
+        border-radius: 10px 20px;
+        border-radius: 10px 20px 30px;
+        border-radius: 10px 20px 30px 40px;
+
+        border-radius: 50% 100% 50% 100% / 100% 50% 100% 50%;
+        /*             좌상 우상 우하 좌하  / 상좌 상우 하우 하좌  */
+
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

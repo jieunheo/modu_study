@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>box-shadow, opacity</title>
+
+    <style>
+      .box {
+        width: 300px;
+        height: 200px;
+        background-color: pink;
+        margin: 100px auto;
+
+        /* box-shadow */
+        /* box-shadow: offset-x offset-y blur-radius spread-radius color */
+        box-shadow: 4px 4px 4px 8px rgba(0, 0, 0, 0.3);
+        /* 다중 그림자 */
+        box-shadow: 4px 4px red, -4px -4px green;
+        /* 내부 그림자 */
+        box-shadow: inset 4px 4px 12px 12px green;
+
+        /* opacity */
+        /* 요소의 투명도, 0 ~ 1 */
+        /* 텍스트가 아닌 배경의 투명도를 줄 때는 background-color에 넣기 */
+
+        background-color: rgba(255, 0, 255, 0.3);
+
+        position: relative;
+        z-index: 50;
+      }
+
+      .back {
+        border: 1px solid #000;
+        width: 300px;
+        height: 200px;
+        position: absolute;
+        top: 50px;
+        left: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">hello world</div>
+    <div class="back"></div>
+  </body>
+</html>

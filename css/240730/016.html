@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습2</title>
+
+    <style>
+      :root {
+        --shadow-standard: rgba(255, 255, 255, 0.1);
+        --shadow-hover: rgba(255, 255, 255, 0.2);
+        --shadow-active: rgba(0, 0, 0, 0.2);
+
+        --background-standard: #343f50;
+
+        --border-standard: #1a202c;
+
+        --font-standard: #cbd5df;
+        --font-hover: #ffffff;
+        --font-disabled: #4a5568;
+
+        --positive: #439aff;
+        --negative: #eb5757;
+      }
+
+      /* button */
+      button {
+        width: 88px;
+        height: 32px;
+        border: 1px solid var(--border-standard);
+        background-color: var(--background-standard);
+        box-shadow: inset 2px 2px 0 0 var(--shadow-standard);
+
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--font-standard);
+      }
+      button:hover,
+      button:active {
+        text-decoration: underline;
+        color: var(--font-hover);
+      }
+      button:hover {
+        box-shadow: inset 2px 2px 0 0 var(--shadow-hover);
+      }
+      button:active {
+        box-shadow: inset 2px 2px 0 0 var(--shadow-active);
+      }
+
+      /* normal */
+      /* normal:disabled */
+      .normal[disabled] {
+        color: var(--font-disabled);
+        box-shadow: none;
+        text-decoration: none;
+      }
+
+      /* positive */
+      .positive {
+        color: var(--positive);
+      }
+      .positive:hover,
+      .positive:active {
+        background-color: var(--positive);
+        border: 1px solid var(--positive);
+      }
+
+      /* negative */
+      .negative {
+        color: var(--negative);
+      }
+      .negative:hover,
+      .negative:active {
+        background-color: var(--negative);
+        border: 1px solid var(--negative);
+      }
+    </style>
+  </head>
+  <body>
+    <button class="normal">Button</button>
+    <button class="normal" disabled>Button</button>
+    <button class="positive">Yes</button>
+    <button class="negative">Del</button>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>width</title>
+
+    <style>
+      .width {
+        border: 1px solid #000;
+      }
+
+      .auto {
+        width: auto; /* 기본값. 부모 요소를 기준으로 가질 수 있는 최대 너비 */
+      }
+
+      .min {
+        width: min-content; /* 요소가 가질 수 있는 최소 너비. 영어 -> 한단어, 한글 -> 한 글자 */
+      }
+
+      .max {
+        width: max-content; /* 줄바꿈 없이 가질 수 있는 최대 너비. 부모 요소를 벗어날 수 있다. */
+      }
+
+      .fit {
+        width: fit-content; /* 사용 가능한 전체 공간(auto)처럼 동작. 콘텐츠의 너비가 작다면 콘텐츠 크기만큼만 차지 */
+      }
+
+      .units {
+        width: 200px; /* 고정값 */
+        width: 80%; /* 부모 요소 크기 기준 */
+        width: 50vw; /* 뷰포트 크기 기준 */
+      }
+
+      /* height */
+      .height {
+        background-color: pink;
+
+        height: auto; /* 콘텐츠 높이 만큼 */
+        height: 30vh; /* 뷰포트 크기 기준 */
+      }
+
+      .child {
+        background-color: teal;
+        height: 50px; /* 고정값 */
+        height: 50%; /* 부모 요소의 높이가 명시되어 있을 때 적용. 없으면 auto와 같음 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="width auto">auto 속성을 적용</div>
+    <div class="width min">min 속성을 적용</div>
+    <div class="width max">
+      max 속성을 적용 - Lorem ipsum dolor sit, amet consectetur adipisicing
+      elit. Sit dolorum quas placeat sed at voluptatum, esse quo assumenda vitae
+      pariatur quae ea repudiandae iusto! Illo nulla quisquam commodi itaque
+      neque.
+    </div>
+    <div class="width fit">
+      fit 속성을 적용 - Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Corrupti fuga, dolore doloribus accusantium magni, nulla eveniet
+      praesentium qui amet, dolorem quibusdam! Saepe quod recusandae unde enim,
+      laboriosam quasi. Dicta, asperiores?
+    </div>
+    <div class="width units">단위를 사용한 요소</div>
+    <hr />
+    <div class="height">
+      부모 요소
+      <div class="child">자식 요소</div>
+    </div>
+  </body>
+</html>
