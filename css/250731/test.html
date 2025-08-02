@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>과제</title>
+    <link rel="stylesheet" href="./styles/custom-reset.css" />
+
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+
+      section {
+        width: 90vw;
+        margin: 20px auto;
+
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        width: 288px;
+        overflow: hidden;
+      }
+      .card h2 {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 16px;
+        color: #29363d;
+      }
+
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 16px;
+      }
+      .title img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      .title .nick {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 100%;
+        color: #5a6a72;
+      }
+
+      .cont {
+        padding: 20px 16px;
+        display: flex;
+        flex-flow: column;
+        gap: 16px;
+      }
+      .cont .photo {
+        width: 100%;
+      }
+      .cont p {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 160%;
+        color: #5a6a72;
+      }
+      .cont a {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 100%;
+        text-decoration: underline;
+        color: #29363d;
+      }
+
+      .more {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .more .read a {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .more .btns {
+        display: flex;
+        gap: 8px;
+      }
+
+      /* 말줄임 여러줄 */
+      .ellipsis-multi {
+        overflow: hidden;
+        /* white-space: nowrap; */
+        text-overflow: ellipsis;
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="card">
+        <img src="./images/photo.png" alt="" />
+        <div class="cont">
+          <h2>그것을 피가 청춘을 것이다</h2>
+          <p class="ellipsis-multi">
+            청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+            청춘 것이다. 얼마나 반짝이는 소담스...운 열락의 아름다우냐? 가지에
+            같지 청춘의 옷을 목숨을 피어나기 오직 군영과 칼이다. 거친 끓는 예가
+            뿐이다. 방지하는 꽃이 청춘을 생명을 이것이다. 인간의 거선의 피고,
+            모래뿐일 작고 우리 평화스러운 있는가?
+          </p>
+          <div>
+            <a href="#">Read</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./images/photo.png" alt="" />
+        <div class="cont">
+          <h2>그것을 피가 청춘을 것이다</h2>
+          <p class="ellipsis-multi">
+            청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+            청춘 것이다. 얼마나 반짝이는 소담스...운 열락의 아름다우냐? 가지에
+            같지 청춘의 옷을 목숨을 피어나기 오직 군영과 칼이다. 거친 끓는 예가
+            뿐이다. 방지하는 꽃이 청춘을 생명을 이것이다. 인간의 거선의 피고,
+            모래뿐일 작고 우리 평화스러운 있는가?
+          </p>
+          <div>
+            <a href="#">Read</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./images/photo.png" alt="" />
+        <div class="cont">
+          <h2>그것을 피가 청춘을 것이다</h2>
+          <p class="ellipsis-multi">
+            청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+            청춘 것이다. 얼마나 반짝이는 소담스...운 열락의 아름다우냐? 가지에
+            같지 청춘의 옷을 목숨을 피어나기 오직 군영과 칼이다. 거친 끓는 예가
+            뿐이다. 방지하는 꽃이 청춘을 생명을 이것이다. 인간의 거선의 피고,
+            모래뿐일 작고 우리 평화스러운 있는가?
+          </p>
+          <div>
+            <a href="#">Read</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./images/photo.png" alt="" />
+        <div class="cont">
+          <h2>그것을 피가 청춘을 것이다</h2>
+          <p class="ellipsis-multi">
+            청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+            청춘 것이다. 얼마나 반짝이는 소담스...운 열락의 아름다우냐? 가지에
+            같지 청춘의 옷을 목숨을 피어나기 오직 군영과 칼이다. 거친 끓는 예가
+            뿐이다. 방지하는 꽃이 청춘을 생명을 이것이다. 인간의 거선의 피고,
+            모래뿐일 작고 우리 평화스러운 있는가?
+          </p>
+          <div>
+            <a href="#">Read</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card">
+        <div class="title">
+          <img src="./images/profile.png" alt="" />
+          <div>
+            <h2>그것을 피가 청춘을 것이다</h2>
+            <p class="nick">secondary</p>
+          </div>
+        </div>
+        <img class="photo" src="./images/photo.png" alt="" />
+        <div class="cont">
+          <p class="ellipsis-multi">
+            청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+            청춘 것이다. 얼마나 반짝이는 소담스...운 열락의 아름다우냐? 가지에
+            같지 청춘의 옷을 목숨을 피어나기 오직 군영과 칼이다. 거친 끓는 예가
+            뿐이다. 방지하는 꽃이 청춘을 생명을 이것이다. 인간의 거선의 피고,
+            모래뿐일 작고 우리 평화스러운 있는가?
+          </p>
+          <div class="more">
+            <div class="read">
+              <a href="#">
+                <span>Read</span><img src="./images/arrow.png" alt=""
+              /></a>
+            </div>
+
+            <ul class="btns">
+              <li>
+                <a href="#"><img src="./images/kebab.png" alt="더보기" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="./images/share.png" alt="공유" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="./images/heart.png" alt="좋아요" /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="title">
+          <img src="./images/profile.png" alt="" />
+          <div>
+            <h2>그것을 피가 청춘을 것이다</h2>
+            <p class="nick">secondary</p>
+          </div>
+        </div>
+        <img class="photo" src="./images/photo.png" alt="" />
+        <div class="cont">
+          <p class="ellipsis-multi">
+            청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+            청춘 것이다. 얼마나 반짝이는 소담스...운 열락의 아름다우냐? 가지에
+            같지 청춘의 옷을 목숨을 피어나기 오직 군영과 칼이다. 거친 끓는 예가
+            뿐이다. 방지하는 꽃이 청춘을 생명을 이것이다. 인간의 거선의 피고,
+            모래뿐일 작고 우리 평화스러운 있는가?
+          </p>
+          <div class="more">
+            <div class="read">
+              <a href="#">
+                <span>Read</span><img src="./images/arrow.png" alt=""
+              /></a>
+            </div>
+
+            <ul class="btns">
+              <li>
+                <a href="#"><img src="./images/kebab.png" alt="더보기" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="./images/share.png" alt="공유" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="./images/heart.png" alt="좋아요" /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="title">
+          <img src="./images/profile.png" alt="" />
+          <div>
+            <h2>그것을 피가 청춘을 것이다</h2>
+            <p class="nick">secondary</p>
+          </div>
+        </div>
+        <img class="photo" src="./images/photo.png" alt="" />
+        <div class="cont">
+          <p class="ellipsis-multi">
+            청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+            청춘 것이다. 얼마나 반짝이는 소담스...운 열락의 아름다우냐? 가지에
+            같지 청춘의 옷을 목숨을 피어나기 오직 군영과 칼이다. 거친 끓는 예가
+            뿐이다. 방지하는 꽃이 청춘을 생명을 이것이다. 인간의 거선의 피고,
+            모래뿐일 작고 우리 평화스러운 있는가?
+          </p>
+          <div class="more">
+            <div class="read">
+              <a href="#">
+                <span>Read</span><img src="./images/arrow.png" alt=""
+              /></a>
+            </div>
+
+            <ul class="btns">
+              <li>
+                <a href="#"><img src="./images/kebab.png" alt="더보기" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="./images/share.png" alt="공유" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="./images/heart.png" alt="좋아요" /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="title">
+          <img src="./images/profile.png" alt="" />
+          <div>
+            <h2>그것을 피가 청춘을 것이다</h2>
+            <p class="nick">secondary</p>
+          </div>
+        </div>
+        <img class="photo" src="./images/photo.png" alt="" />
+        <div class="cont">
+          <p class="ellipsis-multi">
+            청춘의 하였으며, 이것은 몸이 때문이다. 사는가 고동을 용기가 충분히
+            청춘 것이다. 얼마나 반짝이는 소담스...운 열락의 아름다우냐? 가지에
+            같지 청춘의 옷을 목숨을 피어나기 오직 군영과 칼이다. 거친 끓는 예가
+            뿐이다. 방지하는 꽃이 청춘을 생명을 이것이다. 인간의 거선의 피고,
+            모래뿐일 작고 우리 평화스러운 있는가?
+          </p>
+          <div class="more">
+            <div class="read">
+              <a href="#">
+                <span>Read</span><img src="./images/arrow.png" alt=""
+              /></a>
+            </div>
+
+            <ul class="btns">
+              <li>
+                <a href="#"><img src="./images/kebab.png" alt="더보기" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="./images/share.png" alt="공유" /></a>
+              </li>
+              <li>
+                <a href="#"><img src="./images/heart.png" alt="좋아요" /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
