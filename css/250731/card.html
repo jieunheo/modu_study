@@ -22,8 +22,14 @@
         font-style: bold;
       }
 
+      :root {
+        --text-bold-color: #29363d;
+        --text-normal-color: #5a6a72;
+      }
+
       body {
         font-family: "Pretendard-Regular";
+        color: var(--text-normal-color);
       }
 
       section {
@@ -46,7 +52,7 @@
         font-weight: 700;
         font-size: 16px;
         line-height: 16px;
-        color: #29363d;
+        color: var(--text-bold-color);
       }
 
       .title {
@@ -64,7 +70,6 @@
         font-weight: 400;
         font-size: 12px;
         line-height: 100%;
-        color: #5a6a72;
       }
 
       .cont {
@@ -80,14 +85,6 @@
         font-weight: 400;
         font-size: 12px;
         line-height: 160%;
-        color: #5a6a72;
-      }
-      .cont a {
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 100%;
-        text-decoration: underline;
-        color: #29363d;
       }
 
       .more {
@@ -97,6 +94,12 @@
       }
       .more .read a {
         font-family: "Pretendard-Bold";
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 100%;
+        text-decoration: underline;
+        color: var(--text-bold-color);
+
         display: flex;
         align-items: center;
         gap: 20px;
