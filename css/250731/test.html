@@ -7,8 +7,24 @@
     <link rel="stylesheet" href="./styles/custom-reset.css" />
 
     <style>
+      @font-face {
+        font-family: "Pretendard-Regular";
+        src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+          format("woff");
+        font-weight: 400;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Pretendard-Bold";
+        src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+          format("woff");
+        font-weight: 700;
+        font-style: bold;
+      }
+
       body {
         box-sizing: border-box;
+        font-family: "Pretendard-Regular";
       }
 
       section {
@@ -27,6 +43,7 @@
         overflow: hidden;
       }
       .card h2 {
+        font-family: "Pretendard-Bold";
         font-weight: 700;
         font-size: 16px;
         line-height: 16px;
@@ -80,6 +97,7 @@
         align-items: center;
       }
       .more .read a {
+        font-family: "Pretendard-Bold";
         display: flex;
         align-items: center;
         gap: 20px;
