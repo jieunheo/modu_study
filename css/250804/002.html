@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>flex</title>
+
+    <style>
+      .item {
+        background-color: skyblue;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .container {
+        display: flex;
+        background-color: #ccc;
+        min-height: 30vh;
+
+        /* 방향 기본값 */
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      }
+
+      /* flex-basis */
+      /* direction - row: width, direction - column: height */
+      .item:nth-child(1) {
+        flex-basis: 100px;
+      }
+      .item:nth-child(3) {
+        flex-basis: 10rem;
+      }
+
+      /* flex-grow - 여분 공간을 어떤 비율로 나눌지 */
+      .item:nth-child(2) {
+        flex-grow: 1;
+      }
+      .item:nth-child(4) {
+        flex-grow: 2;
+      }
+      .item {
+        /* 요소의 크기 상관 없이 동일한 크기 할당 */
+        /* flex-basis: 0 !important;
+        flex-grow: 1 !important; */
+      }
+
+      /* flex-shrink - 줄어드는 크기 비율 */
+      .item:nth-child(2) {
+        flex-basis: 100px;
+        flex-shrink: 0;
+      }
+      .item:nth-child(3) {
+        flex-shrink: 2;
+      }
+      .item:nth-child(4) {
+        flex-shrink: 4;
+      }
+
+      /* flex - grow shrink basis */
+      .item:nth-child(3) {
+        flex: 2 1 150px;
+        flex: 2 0 150px;
+
+        /* 0 0 auto */
+        flex: none;
+
+        /* 1 1 auto */
+        flex: auto;
+
+        /* 숫자가 1개 -> shrink 1 basis 0 */
+        flex: 1;
+      }
+
+      /* 개별 아이템에 대한 교차축 정렬 */
+      .item:nth-child(3) {
+        align-self: flex-start;
+      }
+      .item:nth-child(2) {
+        align-self: flex-end;
+      }
+      .item:nth-child(5) {
+        align-self: stretch;
+      }
+
+      /* order - 기본값 0
+      숫자가 작을수록 앞쪽
+      숫자가 같으면 마크업 순서대로 */
+      .item:nth-child(5) {
+        order: -2;
+      }
+      .item:nth-child(1) {
+        order: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>flex-direction: row</h2>
+    <div class="container">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+    </div>
+  </body>
+</html>
