@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반응형</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        background-color: palegoldenrod;
+
+        /* 절대 단위 */
+        width: 800px;
+        width: 400px;
+
+        /* 화면 크기에 따른 유동적인 크기 */
+        /* calc() */
+        width: calc(100% - 32px);
+        margin: auto;
+        max-width: 1200px;
+        min-width: 300px;
+
+        /* max(), min() */
+        width: min(50%, 600px);
+        width: max(600px, 100%);
+        /* clamp(최솟값, 선호값, 최대값) */
+        /* 선호값 - 상대 단위(vw, %) */
+        /* 선호값이 최소값보다 작아지다면 최소값
+        선호값이 최대값보다 커진다면 최대값 */
+        width: clamp(300px, 50%, 800px);
+      }
+
+      .lang-list {
+        list-style: none;
+        margin: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .lang-list li {
+        width: max(200px, 30%);
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <span
+        >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
+        doloribus reprehenderit quis numquam perspiciatis ipsum possimus enim
+        aspernatur vel. Est adipisci harum molestiae dolor saepe alias voluptas
+        repudiandae nulla culpa?</span
+      >
+    </div>
+
+    <ul class="lang-list">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습</title>
+
+    <style>
+      .clock {
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+        border-radius: 40px;
+
+        position: relative;
+      }
+      .clock div {
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        transform-origin: bottom;
+      }
+      .hour {
+        width: 15px;
+        height: 50px;
+        background-color: red;
+
+        animation: run-clock 43200s linear 0s infinite;
+      }
+      .minute {
+        width: 10px;
+        height: 70px;
+        background-color: green;
+
+        animation: run-clock 3600s linear 0s infinite;
+      }
+      .seconds {
+        width: 5px;
+        height: 90px;
+        background-color: black;
+
+        animation: run-clock 60s linear 0s infinite;
+      }
+
+      .building {
+        width: 113px;
+        height: 176px;
+        background: url(images/building.png) no-repeat top left / auto 100%;
+
+        animation: building 2s steps(33) 0s infinite;
+      }
+
+      @keyframes run-clock {
+        0% {
+          transform: translateX(-50%) rotate(0deg);
+        }
+
+        100% {
+          transform: translateX(-50%) rotate(360deg);
+        }
+      }
+
+      @keyframes building {
+        0% {
+          background-position: top left;
+        }
+
+        100% {
+          background-position: top right;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 시계 만들기 -  -->
+    <div class="clock">
+      <div class="hour"></div>
+      <div class="minute"></div>
+      <div class="seconds"></div>
+    </div>
+
+    <!-- 빌딩 - steps -->
+    <!-- 빌딩 이미지를 이용 (32개 프레임) -->
+    <div class="building"></div>
+  </body>
+</html>

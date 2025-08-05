@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transitions</title>
+
+    <style>
+      /* transition: 변화
+      어떻게 변화하는지 나타내는 속성
+      display, position은 transition 적용 안됨 */
+      .box {
+        width: 200px;
+        height: 200px;
+        margin: 50px;
+        background-color: #eee;
+
+        /* transition: all 1s; */
+
+        /* transition-property: 전환 효과를 적용할 CSS 속성 */
+        transition-property: background-color, color;
+        transition-property: all; /* 모든 속성 */
+
+        /* transition-duration: transition이 완료되는 데 걸리는 시간 */
+        transition-duration: 3s;
+        /* transition-duration: 0.3s; */
+
+        /* transition-timing-function: transition의 타이밍 */
+        transition-timing-function: ease;
+        transition-timing-function: steps(5);
+        transition-timing-function: linear;
+
+        /* transition-delay: 지연 */
+        transition-delay: 3s;
+        transition-delay: -2s;
+
+        transition: all 1s ease-in-out 1s;
+
+        /* 각 속성마다 다른 transition 을 주고싶다면 쉽표 구분 */
+        transition: none;
+
+        transition: color 2s ease-in, transform 5s linear;
+      }
+      .box:hover {
+        background-color: red;
+        color: white;
+        transform: translateX(100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"><h2>Hello World</h2></div>
+  </body>
+</html>

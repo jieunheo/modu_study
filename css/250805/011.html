@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>미디어쿼리 실습</title>
+
+    <style>
+      @font-face {
+        font-family: "SpoqaHanSansNeo-Regular";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "SpoqaHanSansNeo-Bold";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Bold.woff")
+          format("woff");
+        font-weight: bold;
+      }
+
+      .sr-only {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "SpoqaHanSansNeo-Regular", sans-serif;
+        color: #121314;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        margin: 100px auto 0;
+        width: 100%;
+        max-width: 1200px;
+        padding: 16px;
+
+        display: flex;
+        flex-direction: column;
+      }
+
+      .container .cont-title {
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 100%;
+        letter-spacing: 0%;
+      }
+      .container .cont-title span,
+      .container .cont-desc span {
+        font-weight: 700;
+      }
+
+      .cont-desc {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0%;
+        margin-top: 14px;
+      }
+
+      .cont-wrap {
+        margin-top: 40px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .content-box {
+        width: 100%;
+        height: 205px;
+        border-radius: 20px;
+        padding: 30px 20px 20px 30px;
+
+        background: linear-gradient(rgba(0, 0, 0, 0.8)),
+          url(./images/img1.jpg) no-repeat center / cover;
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+      }
+      .content-box h3,
+      .content-box .more-link {
+        color: #fff;
+      }
+      .content-box:nth-child(2) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.8)),
+          url(./images/img2.jpg);
+      }
+
+      .content-box h3 {
+        flex-grow: 1;
+        font-size: 20px;
+      }
+      .more-link {
+        font-size: 18px;
+
+        align-self: flex-end;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 4px;
+      }
+      .more-link::after {
+        content: "";
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: url(./images/icon.svg) no-repeat center / contain;
+        transform: scale(0.9);
+      }
+
+      @media screen and (min-width: 768px) {
+        .container .cont-title {
+          font-size: 70px;
+        }
+        .cont-desc {
+          margin-top: 20px;
+          font-size: 18px;
+          line-height: 26px;
+        }
+        .cont-wrap {
+          margin-top: 60px;
+
+          flex-direction: row;
+        }
+        .content-box {
+          height: 198px;
+        }
+        .content-box h3 {
+          font-size: 24px;
+        }
+        .more-link {
+          font-size: 16px;
+        }
+        .more-link::after {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      @media screen and (min-width: 1200px) {
+        .container {
+          flex-direction: row;
+          gap: 102px;
+          align-items: flex-start;
+        }
+        .cont-text {
+          min-width: 612px;
+        }
+        .container .cont-title {
+          font-size: 70px;
+        }
+        .cont-desc {
+          font-size: 20px;
+          line-height: 30px;
+        }
+        .cont-wrap {
+          flex-direction: column;
+          margin-top: 0;
+        }
+        .content-box {
+          width: 486px;
+          height: 280px;
+          padding: 40px 30px 30px 40px;
+        }
+        .content-box h3 {
+          font-size: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <h1 class="sr-only">위니브</h1>
+      <div class="cont-text">
+        <p class="cont-title">
+          위니브에서<br /><span>함께 콘텐츠 제작하실<br />분을 모십니다.</span>
+        </p>
+        <p class="cont-desc">
+          <span>위니브</span>는 ICT 연구 및 (코딩)교육 기관이며<br />
+          다양한 사회 공헌 활동을 하고 있습니다.
+        </p>
+      </div>
+      <div class="cont-wrap">
+        <h2 class="sr-only">위니브 콘텐츠</h2>
+        <div class="content-box">
+          <h3>IT 교육 영상 콘텐츠</h3>
+          <a class="more-link" href="#">바로가기</a>
+        </div>
+        <div class="content-box">
+          <h3>IT 서적</h3>
+          <a class="more-link" href="#">바로가기</a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

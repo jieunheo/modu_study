@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transform</title>
+
+    <style>
+      .item {
+        width: 150px;
+        height: 140px;
+        background-color: #ddd;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: all 1s;
+      }
+
+      .container {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 100px;
+      }
+
+      /* transform */
+      .item:nth-child(1):hover {
+        background-color: salmon;
+
+        transform: translate(20px, 20px);
+        /* %는 자신 크기 기준 */
+        transform: translate(-20%, -60%);
+        transform: translate(0, -60%);
+
+        /* x, y축 개별 */
+        transform: translateX(-60%);
+        transform: translateY(60%);
+        transform: translateX(-60%) translateY(60%);
+      }
+
+      .item:nth-child(2):hover {
+        background-color: orange;
+
+        /* 기존 크기 비율에 배수 */
+        transform: scale(2);
+        transform: scale(0.5);
+        transform: scale(1/2);
+
+        transform: scale(1, 2);
+
+        /* x, y축 개별 */
+        transform: scaleX(0.5);
+        transform: scaleY(3);
+        transform: scale(0.5, 2);
+      }
+
+      .item:nth-child(3):hover {
+        background-color: yellow;
+        /* deg(도), rad(2PI = 360), turn */
+        transform: rotate(45deg);
+        transform: rotate(6rad);
+        transform: rotate(1turn);
+
+        /* 중심점 변경 */
+        transform-origin: 50px 10px;
+        transform-origin: top left;
+      }
+
+      .item:nth-child(4):hover {
+        background-color: yellowgreen;
+
+        transform: skew(30deg);
+        transform: skew(-45deg);
+        transform: skew(20deg, 30deg);
+
+        /* x, y축 개별 */
+        transform: skewX(70deg);
+        transform: skewY(70deg);
+      }
+
+      .item:nth-child(5):hover {
+        background-color: skyblue;
+
+        transform: translate(10px, 10px) rotate(2turn) scale(1.5) skew(10deg);
+      }
+
+      /* translate를 이용한 가로세로 정렬 */
+      .absolute {
+        width: 200px;
+        height: 200px;
+        background-color: #eee;
+        margin: 100px auto;
+        position: relative;
+      }
+
+      .absolute .child {
+        width: 80px;
+        height: 80px;
+        background-color: red;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .progress {
+        width: 200px;
+        height: 20px;
+        background-color: #ddd;
+        margin: auto;
+      }
+      .bar {
+        height: 20px;
+        background-color: blue;
+
+        /* width를 변경 */
+        width: 20%;
+
+        /* transform */
+        width: 100%;
+        transform: scaleX(50%);
+        transform-origin: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">이동</div>
+      <div class="item">크기조절</div>
+      <div class="item">회전</div>
+      <div class="item">기울이기</div>
+      <div class="item">전체</div>
+    </div>
+
+    <div class="absolute">
+      <div class="child">child</div>
+    </div>
+
+    <!-- 텍스트로 이루어진 HTML, CSS JavaScript, 이미지파일
+    position 보다는 translate 사용 권장 -->
+
+    <div class="progress">
+      <div class="bar"></div>
+    </div>
+  </body>
+</html>

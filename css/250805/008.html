@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>미디어쿼리</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* 기본 스타일링 */
+      /* 모바일 우선 -> 모바일 레이아웃 먼저 적용 */
+      .container {
+        background-color: #eee;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr;
+        padding: 10px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      /* 테블릿 */
+      @media screen and (min-width: 576px) {
+        .container {
+          background-color: salmon;
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      /* 가로방향 테블릿 */
+      @media screen and (min-width: 768px) {
+        .container {
+          background-color: orange;
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      /* 데스크탑 */
+      @media screen and (min-width: 992px) {
+        .container {
+          background-color: gold;
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      /* 큰 데스크탑 */
+      @media screen and (min-width: 1200px) {
+        .container {
+          background-color: yellowgreen;
+        }
+      }
+      /* 더 큰 데스크탑 */
+      @media screen and (min-width: 1400px) {
+        .container {
+          background-color: blue;
+        }
+      }
+
+      .item {
+        border: 1px solid #000;
+        background-color: royalblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+  </body>
+</html>

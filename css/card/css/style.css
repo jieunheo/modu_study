@@ -1,0 +1,142 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard-Bold";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+    format("woff");
+  font-weight: 700;
+  font-style: bold;
+}
+
+:root {
+  --main-text: #29363d;
+  --sub-text: #5a6a72;
+  --bg-color: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Pretendard-Regular", system-ui;
+  color: var(--main-text);
+}
+
+.post-card {
+  /* width: 28.8rem; */
+  background-color: var(--bg-color);
+  margin: 16px auto;
+  border-radius: 11px;
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.post-card .post-header {
+  display: flex;
+  align-items: center;
+  padding: 1.6rem 1.6rem 1.2rem;
+  gap: 1.6rem;
+}
+
+.post-card .text-cont {
+  flex-grow: 1;
+}
+
+.post-header .profile-img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.content-cont {
+  margin: 1.6rem;
+}
+
+.post-card .thumbnail-img {
+  width: 100%;
+  aspect-ratio: 288/196;
+  object-fit: cover;
+}
+
+.post-card .post-title {
+  line-height: 1;
+  font-weight: 700;
+  /* margin-bottom: 1.6rem; */
+}
+
+.post-card .post-content {
+  font-size: 1.2rem;
+  line-height: 160%;
+  margin-bottom: 1.6rem;
+  color: var(--sub-text);
+}
+
+/* 말줄임 여러줄 */
+.ellipsis-multi {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.action-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-card .more-link {
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 0.3rem 0.6rem;
+  color: var(--main-text);
+
+  display: flex;
+  gap: 1.8rem;
+  align-items: center;
+}
+
+.more-link::after {
+  /* content: url(../images/icon-arrow.svg); 이미지 조작이 안됨*/
+  content: "";
+  text-decoration: none;
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: url(../images/icon-arrow.svg) no-repeat center / contain;
+}
+
+.btn-cont {
+  display: flex;
+  gap: 0.8rem;
+}
+.btn-cont button {
+  background: #fff;
+  border: none;
+  padding: 0;
+}
+.btn-cont img {
+  vertical-align: bottom;
+}
+
+.post-list {
+  min-height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(28.8rem, auto));
+  gap: 3.2rem 2.4rem;
+  justify-content: center;
+}
