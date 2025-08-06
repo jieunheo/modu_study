@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 200px;
+  margin: 300px auto;
+  position: relative;
+
+  transform-style: preserve-3d;
+  animation: rolling 5s linear 0s infinite;
+}
+.container .card {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 4px 48px 8px rgba(0, 0, 0, 0.2);
+
+  transform-style: preserve-3d;
+}
+.card .back {
+  background-color: hotpink;
+  transform: rotateY(180deg);
+}
+.card .front,
+.card .back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  backface-visibility: hidden;
+}
+
+.container .card:nth-child(1) {
+  transform: rotateY(calc(360deg / 6 * 0));
+}
+.container .card:nth-child(1) .front {
+  background: url(../images/weniv-binky.png) no-repeat center / cover;
+}
+
+.container .card:nth-child(2) {
+  transform: rotateY(calc(360deg / 6 * 1));
+}
+.container .card:nth-child(2) .front {
+  background: url(../images/weniv-chilli.png) no-repeat center / cover;
+}
+
+.container .card:nth-child(3) {
+  transform: rotateY(calc(360deg / 6 * 2));
+}
+.container .card:nth-child(3) .front {
+  background: url(../images/weniv-garry.png) no-repeat center / cover;
+}
+
+.container .card:nth-child(4) {
+  transform: rotateY(calc(360deg / 6 * 3));
+}
+.container .card:nth-child(4) .front {
+  background: url(../images/weniv-licat.png) no-repeat center / cover;
+}
+
+.container .card:nth-child(5) {
+  transform: rotateY(calc(360deg / 6 * 4));
+}
+.container .card:nth-child(5) .front {
+  background: url(../images/weniv-suri.png) no-repeat center / cover;
+}
+
+.container .card:nth-child(6) {
+  transform: rotateY(calc(360deg / 6 * 5));
+}
+.container .card:nth-child(6) .front {
+  background: url(../images/weniv-wade.png) no-repeat center / cover;
+}
+
+@keyframes rolling {
+  0% {
+    transform: rotateY(0);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}

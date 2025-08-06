@@ -1,0 +1,177 @@
+/* font */
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+/* utils */
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-size: 1.6rem;
+}
+
+/* mobile */
+.recuit-cont {
+  width: calc(100% - 34px);
+  margin: 10rem auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.intro-cont .intro-title {
+  margin-bottom: 1.4rem;
+  font-size: 3.6rem;
+  font-weight: 400;
+  line-height: 100%;
+}
+.intro-cont .strong {
+  font-weight: 700;
+}
+.intro-cont .intro-desc {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2rem;
+}
+
+.feild-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+.feild-list li {
+  border-radius: 2rem;
+  aspect-ratio: 356/205; /* 비울 */
+  /* height: 20.5rem; 고정 */
+
+  padding: 3rem 2rem 2rem 3rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.feild-list .feild-video {
+  background: url(../images/background1.png) no-repeat center / cover;
+}
+
+.feild-list .feild-book {
+  background: url(../images/background2.png) no-repeat center / cover;
+}
+.feild-list .feild-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.feild-list .feild-link {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-decoration: none;
+  align-self: flex-end;
+
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+}
+
+.feild-list .feild-link::after {
+  content: "";
+  width: 1.8rem;
+  height: 1.8rem;
+  display: inline-block;
+  background: url(../images/icon-_.svg) no-repeat center / cover;
+}
+
+/* tablet */
+@media screen and (min-width: 576px) {
+  .recuit-cont {
+    width: calc(100% - 60px);
+    gap: 6rem;
+  }
+
+  .intro-cont .intro-title {
+    margin-bottom: 2rem;
+    font-size: 7rem;
+    font-size: min(7rem, 10vw);
+  }
+  .intro-cont .intro-desc {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+  }
+
+  .feild-list {
+    flex-direction: row;
+
+    gap: 2rem;
+  }
+  .feild-list li {
+    flex: 1;
+    border-radius: 3rem;
+    aspect-ratio: 344/198; /* 비울 */
+  }
+  .feild-list .feild-title {
+    font-size: 2.4rem;
+  }
+  .feild-list .feild-link {
+    font-size: 1.6rem;
+    gap: 0.4rem;
+  }
+  .feild-list .feild-link::after {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+/* desktop */
+@media screen and (min-width: 1200px) {
+  .recuit-cont {
+    max-width: 120rem;
+    margin-top: 24rem;
+    gap: 10.2rem;
+
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .intro-cont .intro-title {
+    font-size: 7rem;
+  }
+  .intro-cont .intro-desc {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  .feild-list {
+    flex-direction: column;
+    gap: 2rem;
+    flex: 1;
+  }
+  .feild-list li {
+    border-radius: 2rem;
+    aspect-ratio: 486/280; /* 비울 */
+
+    padding: 4rem 3rem 3rem 4rem;
+    font-size: 3rem;
+  }
+}

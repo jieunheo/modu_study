@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>picture</title>
+    <!-- 다른 이미지라면 picture와 source -->
+  </head>
+  <body>
+    <!-- 미디어쿼리에 따라 이미지 선택 -->
+    <picture>
+      <source
+        media="(min-width: 992px)"
+        srcset="./images/lication-chilli.png"
+      />
+      <source
+        media="(max-width: 991px)"
+        srcset="./images/lication-chilli2.png"
+      />
+      <img src="./images/lication-chilli.png" alt="라이켓 칠리" />
+    </picture>
+
+    <!-- 최신 이미지 포맷 -->
+    <picture>
+      <!-- type MIME 타입 -->
+      <source srcset="./images/weniv-licat.webp" type="image/webp" />
+      <source srcset="./images/weniv-licat.avif" type="image/avif" />
+      <img src="./images/weniv-licat.png" alt="" />
+    </picture>
+  </body>
+</html>
