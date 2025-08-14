@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 브라우저 기본 인터페이스</title>
+  </head>
+  <body>
+    <script>
+      // 브라우저 기본 인터페이스
+      // - 브라우저 고유 스타일 존재
+      // - 스타일 변경 불가능
+      // -> 더 복잡하고 예쁜 대화상자가 필요할 땐 커스텀 모달 사용 고려
+
+      // alert – 메시지 보여주기(확인 버튼)
+      // alert("hello world");
+
+      // prompt – 사용자 입력 받기(확인/취소 버튼)
+      // 형식: prompt(질문, [기본값])
+      // 반환값: 확인 - 입력값, 취소- null
+      // let nickname = prompt("닉네임을 입력하세요", "Guest");
+      // alert(`환영합니다, ${nickname}님!`);
+
+      // confirm – 확인 여부 묻기(확인/취소 버튼)
+      // 형식: confirm(질문)
+      // 반환값: 확인 - true, 취소 - false
+      let isAdult = confirm("성인입니까?");
+      if (isAdult) {
+        alert("성인 인증 완료");
+      } else {
+        alert("접근 제한");
+      }
+    </script>
+  </body>
+</html>

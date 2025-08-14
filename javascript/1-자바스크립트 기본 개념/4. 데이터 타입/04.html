@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 원시형 vs 객체형</title>
+  </head>
+  <body>
+    <script>
+      // 원시형 (Primitive Type) - 값 자체가 저장되고, 복사됨
+      // 영희 접시 위에 있는 사과를 보고 새 사과를 가져와서 철수 접시에 위에 올려놓음. 접시에 그냥 사과가 있음.
+      //   영희의 사과 따로, 철수의 사과 따로
+      let a = 10;
+      let b = a; // 값 복사
+      a = 20;
+
+      console.log(a); // 20
+      console.log(b); // 10 (b는 영향 없음)
+
+      // 객체형 (Object Type) - 참조(주소)가 저장됨. 복사해도 같은 객체를 가리킴
+      // 영희의 공책에 적힌 "참고자료 113P"를 보고 따라 적어옴. 철수는 그 내용을 보기 위해서는 참고자료 113P를 펼치면 됨.
+      //   영희의 참고자료 113P와, 철수의 참고자료 113P가 동일함. 참고자료 113P의 내용이 바뀌면 둘 다 내용이 바뀜.
+      let user1 = { name: "Alice" };
+      let user2 = user1; // 참조 복사
+
+      user1.name = "Bob";
+
+      console.log(user2.name); // "Bob" (같은 객체를 참조 중)
+    </script>
+  </body>
+</html>

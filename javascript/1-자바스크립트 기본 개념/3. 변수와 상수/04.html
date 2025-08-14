@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 엄격 모드 use strict</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+
+      // 원래는 let을 쓰지 않아도 변수 선언이 가능하지만, strict 모드에서는 에러 발생
+      // let을 쓰지 않으면 전역 변수가 되어 모든 곳에서 접근 가능해짐: strict 모드가 아니더라도 지양할 것!
+      aaa = 100; // error
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 데이터 타입 - 객체형(object)</title>
+  </head>
+  <body>
+    <script>
+      // 객체형(참조타입): 복잡한 데이터를 저장
+
+      // 객체(object)
+      const user = {
+        name: "홍길동",
+        age: 25,
+      };
+
+      console.log(user);
+      // 안의 값을 골라 출력하고싶을 때는 닷(.)을 사용
+      console.log(user.name);
+
+      // 값 추가 가능
+      user.power = 999;
+      console.log(user);
+
+      // 빈 객체 생성도 가능
+      const user2 = {};
+      console.log(user2);
+      user2.name = "강감찬";
+      console.log(user2);
+    </script>
+  </body>
+</html>

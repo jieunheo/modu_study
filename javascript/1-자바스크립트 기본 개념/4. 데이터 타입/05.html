@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 형 변환 (Type Conversion)</title>
+  </head>
+  <body>
+    <script>
+      // 형 변환: 상황에 따라 값을 알아서 바꿔줌
+      // 동적 타입 언어의 특징 중 하나
+
+      // 문자형으로 변환
+      let status = false;
+      console.log(typeof status); // boolean
+
+      status = String(status);
+      console.log(typeof status); // string
+
+      // 숫자형으로 변환 - 수학 연산이 필요한 상황에서 자동으로 숫자형으로 변환
+      console.log("8" * "3"); // 24
+
+      // Number()를 쓰면 직접 변환 가능.
+      let input = "42";
+      console.log(typeof input); // string
+      console.log(typeof Number(input)); // number
+
+      // 숫자 변환 실패시 NaN 출력
+      let age = Number("나이모름");
+      console.log(age); // NaN
+
+      console.log(Number("   300   ")); // 300 - 문자열 → 앞뒤 공백 제거 후 숫자로 해석. 실패 시 NaN
+      console.log(Number("12px")); // NaN
+      console.log(Number(undefined)); // NaN
+      console.log(Number(null)); // 0
+      console.log(Number(true)); // 1
+      console.log(Number(false)); // 0
+
+      // 불린형으로 변환 - 논리 연산이 필요한 상황에서 자동으로 불린형으로 변환
+      console.log(Boolean(100)); // true
+      console.log(Boolean("data")); // true
+      console.log(Boolean(" ")); // true
+      console.log(Boolean("0")); // true
+
+      console.log(Boolean("")); // false
+      console.log(Boolean(0)); // false
+      console.log(Boolean(undefined)); // false
+      console.log(Boolean(null)); // false
+      console.log(Boolean(NaN)); // false
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 변수 var</title>
+  </head>
+  <body>
+    <script>
+      // 옛날 방식 변수 선언
+      // var는 let과 비슷하지만, 유효 범위 등 차이 있음. 오래된 방식이라 요즘은 잘 안 씀
+      // let과 var는 혼용 금지
+      var title;
+      title = "안녕";
+      console.log(title);
+
+      // 재선언
+      // let은 에러가 나지만 var는 에러가 나지 않음
+      var title = "메롱";
+      console.log(title);
+
+      // 카멜 표기법(camelCase) 사용 권장
+      let mainTitle;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript</title>
+    <!-- <script src="./04.js"></script> -->
+    <!-- defer: 스크립드의 실행을 html 파싱을 끝낸 후로 미룸 -->
+    <script src="./04.js" defer></script>
+
+    <!-- async: 외부 요소를 가져와서 바로 실행해도 될 때 사용하는 것 추천
+    ex) 날씨 모듈 -->
+    <script src="./03.js" async></script>
+  </head>
+  <body>
+    <!-- html 태그와 직접적인 이벤트를 실행하는 스크립트가 있는 경우 상단에 있을 때 콘솔 에러 가능성이 있음
+     이 때는 body 태그 하단에 작성하거나 defer 속성을 사용 -->
+    <h1>하하하</h1>
+    <p>안녕</p>
+  </body>
+</html>

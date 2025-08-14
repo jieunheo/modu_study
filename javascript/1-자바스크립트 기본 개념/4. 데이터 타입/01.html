@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 데이터 타입 - 원시형(primitive)</title>
+  </head>
+  <body>
+    <script>
+      // 원시형: 간단한 값을 저장
+
+      // JavaScript: 동적 타입 언어. 변수에 어떤 데이터 타입이든 자유롭게 저장할 수 있음.
+      let msg = "hello";
+      msg = 100; // 에러 없음
+
+      // 숫자형(number) - 정수, 소수, 음수 등
+      let score = 42;
+      let pi = 3.14;
+
+      // 사칙연산
+      const a = 100;
+      const b = 7;
+      const c = "8";
+
+      console.log(a + b); // 107
+      console.log(a - b); // 93
+      console.log(a * b); // 700
+
+      // 문자와 계산하면 문자로 변환
+      console.log(a + c); // "1008"
+
+      // 무한한 값
+      console.log(a / 0); // Infinity
+
+      // 숫자가 아님을 나타냄
+      console.log("hi" * 3); // NaN
+
+      // BigInt
+      // 아주 큰 정수를 다루고 싶을 때 사용. 자주 쓰이진 않음. (IE는 지원 ❌).
+      // 이론적으로는 메모리가 허용하는 한도까지 무제한 크기의 정수를 표현 가능. 끝에 n을 붙이면 됨.
+      const big = 123456789012345678901234567890n;
+
+      // 문자형(string) - 글자들을 의미함. ", ', ` 모두 사용 가능.
+      let name = "철수";
+      let age = "21";
+
+      let greeting =
+        "안녕? 나는 " + name + "라고 하고, 나이는 " + age + "살이야.";
+      console.log(greeting);
+
+      // ${} 안에 표현식(변수나 식)을 넣으면 문자열 안에 끼워넣을 수 있음.(템플릿 문자열)
+      // 백틱(`)으로 쓸 때만 가능함.
+      let greeting2 = `안녕? 나는 ${name}라고 하고, 나이는 ${age}살이야.`;
+      console.log(greeting2);
+
+      console.log(`2 + 2 = ${2 + 2}`);
+
+      // 따옴표 안에 따옴표 쓰는 방법
+      // 1. 겹치지 않게 사용
+      let quote1 = "I'm a developer"; // 작은따옴표는 큰따옴표 안에
+      let quote2 = 'He said "hello!"'; // 큰따옴표는 작은따옴표 안에
+
+      // 2. 역슬래시(\)로 이스케이프 처리
+      // 'I\'m a developer'; // 작은따옴표 안에 작은따옴표
+      // "He said \"hello!\""; // 큰따옴표 안에 큰따옴표
+
+      // 불린형(boolean) - 참(true)/거짓(false)
+      console.log(10 > 100);
+      console.log(true);
+
+      // null - “아무것도 없음”을 명시
+      // 일부러 비워두고싶을 떄 사용.
+      let selected = null;
+
+      // undefined - 값이 아직 없음
+      let x;
+      console.log(x); // undefined
+      // null은 의도적인 비움, undefined은 정의 안됨이기 때문에
+      // 일부러 비워두기 위한 값으로는 undefined보다 null이 적합
+
+      // 심볼형(symbol) - 고유한 식별자
+      // 주로 객체 속성 키로 씀. 특수한 경우에만 사용됨.
+      let id = Symbol("id");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 상수 const</title>
+  </head>
+  <body>
+    <script>
+      // 기본적으로는 const를 먼저 사용하고, 값이 나중에 바뀔 필요가 있을 때만 let을 사용함.
+      let name;
+      name = "홍길동";
+      name = "강감찬";
+
+      // const siteName; // 초기값 미할당 에러
+      const siteName = "Studiomeal";
+      siteName = "OtherSite"; // 재할당 불가
+
+      // 하드코딩된 값(색상, 키 코드 등)은 대문자 + 밑줄로 표기한 상수를 사용함.
+      const API_KEY = "XYZ123456";
+      let key = API_KEY;
+
+      const MAIN_COLOR = "#FF0000";
+      const POINT_COLOR = "#9CCF00";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript typeof 연산자</title>
+  </head>
+  <body>
+    <script>
+      // typeof: 값의 데이터 타입을 확인할 수 있는 연산자
+      console.log(typeof 123); // "number"
+      console.log(typeof "hi"); // "string"
+      console.log(typeof true); // "boolean"
+      console.log(typeof undefined); // "undefined"
+      console.log(typeof null); // "object" ← 주의! 객체가 아님(설계 오류)
+      console.log(typeof Symbol()); // "symbol"
+      console.log(typeof {}); // "object"
+      console.log(typeof function () {}); // "function" <- 사실 객체형
+    </script>
+  </body>
+</html>
