@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 전역 객체(Global Object)</title>
+  </head>
+  <body>
+    <script>
+      /* 전역 객체란?
+      전역 객체는 어디서든 접근 가능한 전역적인 공간임.
+      내장 함수나 브라우저 API 등도 전부 전역 객체의 프로퍼티로 존재함.
+
+      브라우저 환경에선 window, Node.js에선 global로 불림.
+      공통 이름으론 globalThis가 사용됨.
+       */
+      alert("hello");
+      // window.alert("hello")와 동일함
+
+      // var로 선언된 전역 변수는 전역 객체의 프로퍼티가 됨.
+      var gVar = 5;
+      console.log(window.gVar); // 5
+
+      // 하지만 let이나 const로 선언한 변수는 전역 객체에 포함되지 않음
+      let gLet = 10;
+      console.log(window.gLet); // undefined
+
+      // 전역 객체에 직접 추가하기
+      window.currentUser = {
+        name: "Alice",
+      };
+
+      console.log(currentUser.name); // Alice
+      console.log(window.currentUser.name); // Alice
+      // 단, 전역 변수는 최대한 사용을 자제하는 것이 좋음.
+
+      /* 요약
+      전역 객체는 어디서나 접근 가능함.
+      브라우저에선 window, Node.js에선 global로 불림.
+      모든 환경에서 공통으로 globalThis 사용 가능.
+      var는 전역 객체 프로퍼티가 되지만, let/const는 아님.
+      전역 변수는 꼭 필요할 때만 사용하고, 되도록 줄이도록 노력함.
+      */
+    </script>
+  </body>
+</html>

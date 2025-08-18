@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 함수 표현식</title>
+  </head>
+  <body>
+    <script>
+      /* 함수도 값이다
+                  자바스크립트에선 함수도 값처럼 다뤄짐.
+                  변수에 할당하거나, 다른 변수로 복사 가능.
+                  */
+
+      // 함수 표현식 - 함수 정의 후 변수에 할당.
+      // 함수 이름은 선택 사항. 이름이 없으면 익명 함수라고 함.
+      let sayHi = function () {
+        console.log("안녕하세요!");
+      };
+
+      sayHi();
+
+      // 세미콜론
+      // 함수 표현식은 값이기 때문에 구문 끝에 ; 필요.
+      // 함수 선언문엔 ; 필요 없음.
+
+      // 콜백 함수
+      // 다른 함수의 인자로 전달되는 함수.
+      function sayHi(name, callback) {
+        console.log("안녕하세요, " + name + "님!");
+        callback();
+      }
+
+      function endMessage() {
+        console.log("방문해주셔서 감사합니다.");
+      }
+
+      sayHi("탐 크루즈", endMessage);
+      // 작업이 끝난 후에 다른 동작을 실행
+
+      // 익명 함수
+      // 이름이 없는 함수. 표현식에서 자주 사용됨.
+      // 변수에 저장되거나, 다른 함수의 인수로 바로 전달됨.
+
+      // 표현식 vs 선언문
+      // 선언문: 코드 어디서든 호출 가능
+      // 표현식: 실행 흐름이 도달해야 생성됨
+
+      // 함수 선언문
+      function add(a, b) {
+        return a + b;
+      }
+
+      // 함수 표현식
+      let add = function (a, b) {
+        return a + b;
+      };
+
+      // 조건에 따라 함수 정의
+      let showMessage;
+
+      if (isMorning) {
+        showMessage = function () {
+          console.log("좋은 아침입니다");
+        };
+      } else {
+        showMessage = function () {
+          console.log("안녕하세요");
+        };
+      }
+
+      showMessage();
+
+      /* 요약
+      함수도 값 → 변수에 저장, 복사 가능
+      함수 표현식은 실행 흐름이 도달해야 생성됨
+      선언문은 스크립트 시작 시 자동으로 생성됨
+      콜백 함수: 다른 함수의 인수로 전달되어 나중에 실행됨
+      익명 함수: 이름 없이 사용되는 함수 표현식
+      조건에 따라 함수 선언 시엔 표현식을 사용
+      */
+    </script>
+  </body>
+</html>

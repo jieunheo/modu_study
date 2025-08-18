@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 객체: 프로퍼티 조작</title>
+  </head>
+  <body>
+    <script>
+      /* 프로퍼티 추가하기
+      객체에 새로운 프로퍼티를 추가하려면 점(.) 또는 대괄호([]) 표기법 사용.
+      점 표기법이 더 간편하지만, 키가 변수일 땐 괄호 표기법을 사용함.
+      */
+      let user = {
+        name: "윤아",
+      };
+
+      user.age = 38;
+      user["hobby"] = "마인크래프트";
+
+      console.log(user.age);
+      console.log(user["hobby"]);
+
+      // 프로퍼티 삭제하기
+      // delete 연산자를 사용하여 객체의 프로퍼티를 삭제할 수 있음.
+      delete user.hobby;
+      console.log(user.hobby); // undefined
+
+      // in 연산자 쓰기 - in 연산자는 객체에 해당 키가 있는지 확인할 수 있음.
+      console.log("name" in user);
+      console.log("hobby" in user);
+
+      // for...in 반복문 돌리기
+      // for...in 문법으로 객체의 모든 키에 접근 가능함.
+      for (let key in user) {
+        console.log(key + ": " + user[key]);
+      }
+    </script>
+  </body>
+</html>

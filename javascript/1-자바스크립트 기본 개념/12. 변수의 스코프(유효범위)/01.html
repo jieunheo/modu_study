@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 변수의 스코프(유효범위)</title>
+  </head>
+  <body>
+    <script>
+      /* 변수의 스코프란?
+      변수에 접근할 수 있는 범위를 스코프(scope)라고 함.
+      자바스크립트의 변수는 전역 스코프 또는 지역 스코프를 가짐
+      */
+
+      // 전역 스코프 - 스크립트 어디에서든 접근 가능한 범위. 전역에서 선언된 변수는 모든 함수나 블록 안에서 사용 가능함.
+      let title = "어디서든 접근 가능한 변수";
+
+      function printTitle() {
+        console.log(title);
+      }
+
+      printTitle();
+      console.log(title);
+
+      // 지역 스코프 - 함수나 블록 안에서 선언된 변수는 그 안에서만 접근 가능함. 바깥에서는 쓸 수 없음.
+      function run() {
+        let speed = 80;
+        console.log("속도:", speed);
+      }
+
+      run();
+      console.log(speed); // 에러: speed is not defined
+
+      // 중첩된 스코프 - 함수 안에 함수가 있는 경우, 안쪽 함수는 바깥쪽 변수에 접근 가능함. 반대는 불가능함.
+      let msg = "밖";
+
+      function outer() {
+        let outerMsg = "바깥";
+
+        function inner() {
+          let innerMsg = "안쪽";
+          console.log(msg);
+          console.log(outerMsg);
+          console.log(innerMsg);
+        }
+
+        inner();
+        console.log(innerMsg); // 에러
+      }
+
+      outer();
+
+      // 블록 스코프 vs 함수 스코프 - let과 const는 블록 스코프, var는 함수 스코프를 가짐.
+      function loop() {
+        for (let i = 0; i < 3; i++) {
+          console.log("안:", i);
+        }
+        console.log("밖:", i); // 에러
+      }
+
+      loop();
+
+      function loopVar() {
+        for (var i = 0; i < 3; i++) {
+          console.log("안:", i);
+        }
+        console.log("밖:", i); // 정상 출력
+      }
+
+      loopVar();
+
+      {
+        let blockVar = "블록 변수";
+        console.log(blockVar); // 정상 출력
+      }
+      // console.log(blockVar); // 에러: blockVar is not defined
+
+      // var의 위험성 - ar는 같은 이름으로 중복 선언 가능하고, 의도치 않은 동작을 만들기 쉬움.
+      var mood = "좋음";
+      var mood = "나쁨";
+
+      console.log(mood); // 나쁨
+
+      // let이나 const는 중복 선언이 안되므로 더 안정적임.
+      let mood = "좋음";
+      // let mood = "나쁨"; // 에러 발생
+
+      // 요약
+      // - 전역 스코프: 어디서든 접근 가능
+      // - 지역 스코프: 함수나 블록 안에서만 접근 가능
+      // - 중첩된 스코프: 안쪽 함수는 바깥쪽
+      // - 블록 스코프: let과 const는 블록 안에서만, var는 함수 안에서만 접근 가능
+      // - let과 const는 블록 스코프, var는 함수 스코프
+    </script>
+  </body>
+</html>

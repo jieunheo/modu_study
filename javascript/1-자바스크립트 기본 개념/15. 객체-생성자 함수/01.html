@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 객체: 생성자 함수</title>
+  </head>
+  <body>
+    <script>
+      /* 생성자 함수(Constructor Function)란?
+      비슷한 구조의 객체를 반복해서 만들 때 쓰는 템플릿 같은 함수.
+      매번 복붙하는 대신, 하나의 틀로 객체 여러 개를 만드는 방식임.
+      */
+
+      // 생성자 함수 정의
+      function User(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      const user = User("지수", 6); // this가 바인딩되지 않음, undefined 반환됨
+      const user1 = new User("지수", 6); // this가 User 객체를 가리킴, 새로운 객체 생성됨 = 인스턴스 생성
+      const user2 = new User("현우", 110);
+
+      console.log(user);
+      console.log(user1.name);
+      console.log(user2.age);
+
+      // 생성자 함수 내부 구조
+      /*
+      new User("지수", 6)가 실행되면 내부적으로 다음과 같은 일이 일어남:
+
+      빈 객체 생성됨
+      this에 그 객체가 바인딩됨
+      프로퍼티와 메서드가 this에 추가됨
+      this가 반환됨
+      */
+
+      // 메서드도 같이 만들기
+      // 생성자 함수 내부에 메서드를 정의할 수도 있음.
+      function Dog(name) {
+        this.name = name;
+        this.bark = function () {
+          console.log(this.name + "가 짖습니다!");
+        };
+      }
+
+      const dog = new Dog("코코");
+      dog.bark(); // "코코가 짖습니다!"
+
+      /* 정리
+      생성자 함수는 대문자로 시작
+      new 키워드와 함께 호출
+      객체의 틀을 정의하는 방식임
+      this를 통해 생성된 객체를 설정함
+      */
+    </script>
+  </body>
+</html>

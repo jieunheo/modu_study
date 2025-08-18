@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 함수 기본</title>
+  </head>
+  <body>
+    <script>
+      /*
+          함수는 특정 동작을 묶어놓은 코드 덩어리.
+          같은 작업을 반복하거나, 코드를 깔끔하게 정리할 때 유용함.
+          */
+
+      // 함수 선언과 호출
+      function greet() {
+        console.log("안녕하세요!");
+      }
+
+      greet(); // 함수 호출
+
+      // 함수 이름 짓기
+      // 동사를 활용한 명확한 이름이 좋음.
+      // 예: showUserInfo, getScore
+
+      // 매개변수와 인수
+      // 함수 선언 시 괄호 안의 변수는 매개변수(parameters)
+      // 호출할 때 전달하는 값은 인수(arguments)
+      function sayHello(name) {
+        console.log("Hello, " + name);
+      }
+
+      sayHello("Siyun");
+
+      // 반환값 (return)
+      // 함수가 값을 반환할 때 return 키워드 사용
+      function multiply(x, y) {
+        return x * y; // x와 y의 곱을 반환
+      }
+      let result = multiply(4, 5); // 20
+      console.log("Result:", result); // Result: 20
+
+      // 여러 매개변수 사용
+      function add(a, b) {
+        return a + b; // 결과를 반환
+      }
+      let sum = add(3, 5); // 8
+      console.log("Sum:", sum); // Sum: 8
+
+      // 기본값 매개변수
+      function greetUser(name = "Guest") {
+        console.log("Hello, " + name);
+      }
+      greetUser(); // 기본값 사용 → Hello, Guest
+
+      // 지역 변수와 전역 변수
+      // 함수 안에서 선언한 변수는 함수 안에서만 사용 가능.
+      // 함수 밖의 변수는 함수 안에서도 접근 가능.
+      let user = "Tom";
+
+      function greet() {
+        let message = "Hello, " + user;
+        console.log(message);
+      }
+
+      greet();
+
+      // 얼리 리턴 패턴
+      function checkNumber(num) {
+        if (num === 0) return "0입니다.";
+        if (num < 0) return "0보다 작습니다.";
+        return "0보다 큽니다.";
+      }
+
+      console.log(checkNumber(5));
+
+      // 함수 실행 순서
+      function print() {
+        console.log(1);
+        console.log(2);
+      }
+
+      console.log(3);
+      print();
+      console.log(4);
+      // 출력 순서: 3, 1, 2, 4
+
+      // 함수에게는 하나의 일만 시키기
+      function showEvens(n) {
+        for (let i = 1; i <= n; i++) {
+          if (!isEven(i)) continue;
+          console.log(i);
+        }
+      }
+
+      function isEven(num) {
+        return num % 2 === 0;
+      }
+    </script>
+  </body>
+</html>

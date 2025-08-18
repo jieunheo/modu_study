@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 화살표 함수</title>
+  </head>
+  <body>
+    <script>
+      /*
+      화살표 함수(arrow function)는 기존 함수 표현식보다 짧고 간단하게 작성할 수 있는 문법.
+      생긴 모양이 화살표( => )를 닮아서 붙여진 이름.
+      */
+      let add = (x, y) => {
+        return x + y;
+      };
+      console.log(add(3, 5)); // 8
+
+      let add2 = (x, y) => x + y;
+      console.log(add2(3, 5)); // 8
+
+      // 매개변수 개수에 따른 차이
+
+      // 매개변수가 하나일 때 괄호 생략 가능
+      let square = (x) => x * x;
+      console.log(square(4)); // 16
+
+      let square2 = (x) => x * x;
+      console.log(square(4)); // 16
+
+      // 매개변수가 없을 때는 빈 괄호 사용
+      let greet = () => console.log("안녕하세요!");
+      greet(); // 안녕하세요!
+
+      /*요약
+      (a, b) => a + b 형태로 간단한 함수 작성 가능
+      한 줄이면 return 생략 가능
+      여러 줄이면 { }와 return 사용 필요
+      콜백 함수 등 간단한 동작에 유용함
+      */
+    </script>
+  </body>
+</html>

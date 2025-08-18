@@ -40,6 +40,16 @@
       console.log(+str);
       console.log(Number(str));
       console.log(str * 1);
+
+      /* 연산자 우선순위
+      *, /: 우선순위 높음
+      +, -: 그다음
+      (): 괄호로 우선순위 조정 가능
+      단항 +, -는 이항보다 우선
+      */
+
+      console.log(2 + 3 * 4); // 14
+      console.log((2 + 3) * 4); // 20
     </script>
   </body>
 </html>

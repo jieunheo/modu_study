@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 객체 다루기 시작</title>
+  </head>
+  <body>
+    <script>
+      /* 객체 개념
+      객체(Object)는 여러 데이터를 하나로 묶어서 저장할 수 있는 자료형.
+      이름, 나이, 이메일 등 관련 정보들을 하나로 묶을 수 있음.
+
+      변수로 따로따로 관리하는 대신, 객체 하나에 키-값 쌍으로 정리 가능함.
+      */
+
+      // 객체 생성
+      /* 객체를 만드는 대표적인 방법 두 가지:
+      리터럴 방식 (중괄호 사용) - 리터럴 방식이 더 간단하고 많이 쓰임.
+      생성자 방식 (new Object())
+      */
+      let user1 = {};
+      let user2 = new Object();
+
+      // 프로퍼티 작성
+      // 객체는 키-값 쌍으로 데이터를 저장.
+      let book = {
+        title: "Harry Potter",
+        author: "J.K. Rowling",
+        year: 1997,
+      };
+
+      // 프로퍼티 접근
+      /*
+      점 표기법: book.title
+      대괄호 표기법: book["title"]
+
+      key가 변수로 주어질 때는 대괄호 표기법만 사용 가능함.
+      */
+      console.log(book.title);
+      console.log(book["author"]);
+
+      // 프로퍼티 추가와 수정
+      book.price = 15000;
+      book.year = 2026;
+
+      // 프로퍼티 삭제
+      delete book.price;
+
+      // 프로퍼티 존재 여부 확인
+      console.log("title" in book); // true
+      console.log("price" in book); // false
+
+      // 다양한 자료형 저장 - value에는 어떤 자료형이든 들어갈 수 있음. 숫자, 문자열, 함수 등 모두 가능.
+      let dog = {
+        name: "초코",
+        age: 3,
+        bark: function () {
+          console.log("멍멍!");
+        },
+      };
+
+      dog.bark(); // 멍멍!
+
+      /* 요약
+      객체는 관련 있는 값을 하나로 묶어서 저장하는 방식
+      key-value 쌍으로 구성됨
+      점 표기법과 대괄호 표기법으로 접근 가능
+      value에는 어떤 자료형도 사용 가능
+      */
+    </script>
+  </body>
+</html>

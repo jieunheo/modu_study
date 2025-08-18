@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 반복문</title>
+  </head>
+  <body>
+    <script>
+      /*
+      같은 코드를 여러 번 실행해야 할 때 반복문을 사용함.
+      예: 숫자를 하나씩 증가시키거나, 목록의 항목을 하나씩 출력할 때.
+      */
+
+      // while문 - 조건이 true인 동안 계속 실행.
+      let count = 0;
+
+      while (count < 3) {
+        console.log(count);
+        count++;
+      }
+
+      // do...while문 - 먼저 코드 실행 후 조건 검사. 조건이 true면 반복.
+      let n = 0;
+
+      do {
+        console.log(n);
+        n++;
+      } while (n < 3);
+
+      // for문 - 초기화, 조건 검사, 증감식을 한 줄에 작성.
+      for (let i = 0; i < 3; i++) {
+        console.log(i);
+      }
+
+      // for...in문 - 객체의 속성을 순회할 때 사용.
+      let obj = { a: 1, b: 2, c: 3 };
+      for (let key in obj) {
+        console.log(key, obj[key]);
+      }
+
+      // for...of문 - 배열이나 이터러블 객체의 값을 순회할 때 사용.
+      let arr = [10, 20, 30];
+      for (let value of arr) {
+        console.log(value);
+      }
+
+      // 구성 생략하기
+      // for문에서 초기화, 조건 검사, 증감식을 생략할 수 있음.
+      let i = 0;
+      for (; i < 3; ) {
+        console.log(i++);
+      } // 초기화는 밖에서, 조건은 for문 안에서, 증감식은 코드 블록 안에서 처리.
+
+      // 무한 루프 - 조건이 항상 true인 경우. 주의해서 사용해야 함.
+      // let j = 0;
+      // for (; true; j++) {
+      //   if (j >= 5) break; // 조건이 맞으면 break로 종료
+      //   console.log(j);
+      // }
+
+      // break문 - 반복문을 즉시 종료.
+      for (let j = 0; j < 5; j++) {
+        if (j === 3) {
+          break; // j가 3일 때 반복문 종료
+        }
+        console.log(j);
+      }
+
+      // continue문 - 현재 반복을 건너뛰고 다음 반복으로 넘어감.
+      for (let k = 0; k < 5; k++) {
+        if (k === 2) {
+          continue; // k가 2일 때 현재 반복 건너뛰기
+        }
+        console.log(k);
+      }
+
+      /*요약
+      while: 조건이 맞는 동안 반복
+      do...while: 최소 한 번 실행 후 조건 검사
+      for: 초기값, 조건, 증감을 함께 설정
+      break: 반복문 즉시 종료
+      continue: 다음 반복으로 건너뜀
+      */
+    </script>
+  </body>
+</html>
