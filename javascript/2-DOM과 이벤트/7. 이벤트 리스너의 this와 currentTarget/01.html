@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        border: 5px solid crimson;
+        cursor: crosshair;
+      }
+
+      .btn {
+        padding: 10px;
+        cursor: pointer;
+      }
+      .btn-b {
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <button class="btn btn-a">Button A</button>
+      <button class="btn btn-b">Button B</button>
+    </div>
+    <script>
+      const box = document.querySelector(".box");
+
+      box.addEventListener("click", function (e) {
+        // console.log(this);
+        console.log(e.currentTarget); // 이벤트가 바인딩된 요소, this와 동일
+        console.log(e.target); // 이벤트가 실제로 발생한 요소
+      });
+    </script>
+  </body>
+</html>

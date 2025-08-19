@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="likeBtn" data-user-id="minji" data-count="5">좋아요</button>
+    <button id="counterBtn" data-count="0">
+      좋아요 <span id="likeCount">0</span>
+    </button>
+    <script>
+      const btn = document.getElementById("likeBtn");
+
+      console.log(btn.dataset.userId); // "minji"
+      console.log(btn.dataset.count); // "5"
+      /*
+      data-user-id → dataset.userId
+      data-count → dataset.count
+      하이픈(-)은 카멜케이스로 변환되어 사용됨.
+      */
+
+      btn.dataset.count = "6";
+      btn.dataset.newValue = "추가됨";
+
+      console.log(btn.dataset);
+
+      /* 주의사항
+      dataset의 모든 값은 문자열(string)임
+      숫자가 필요한 경우 parseInt() 또는 Number()로 변환 필요
+      속성 이름은 소문자, 하이픈(-)으로 작성하고, JS에서는 카멜케이스로 접근
+      */
+      let count = Number(btn.dataset.count); // "6" → 6
+      count += 1;
+      btn.dataset.count = count;
+
+      const counterBtn = document.getElementById("counterBtn");
+
+      counterBtn.addEventListener("click", () => {
+        const likeCount = counterBtn.querySelector("#likeCount");
+        // 화살표 함수는 this가 상위 스코프를 참조함
+        // 따라서 this.dataset은 버튼의 dataset을 참조하지 않음
+        let count = Number(counterBtn.dataset.count);
+        count += 1; // count++
+        counterBtn.dataset.count = count;
+        likeCount.textContent = `${count}`;
+      });
+    </script>
+  </body>
+</html>

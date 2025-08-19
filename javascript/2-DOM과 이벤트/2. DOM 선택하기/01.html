@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h1 id="title">안녕!</h1>
+    </header>
+    <p class="text">첫 번째 문장</p>
+    <p class="text">두 번째 문장</p>
+    <p class="text">세 번째 문장</p>
+    <p class="text">네 번째 문장</p>
+
+    <script>
+      /* DOM 개념 이해
+      DOM(Document Object Model)은 HTML 문서를 자바스크립트로 다룰 수 있게 만든 구조.
+      HTML을 트리처럼 표현하고, 각 요소를 노드라는 단위로 관리함.
+
+      자바스크립트로 DOM을 이용하면 요소를 추가하거나 삭제하고,
+      텍스트, 속성, 스타일 등도 바꿀 수 있음.
+      */
+      const heading = document.getElementById("title");
+      // console.log(heading.textContent);
+      // heading.textContent = 'ㅋㅋㅋㅋㅋ';
+      heading.innerHTML = "<small>오잉</small>";
+
+      const headerElem = document.querySelector("header");
+      // console.log(headerElem.textContent);
+      // console.log(headerElem.innerHTML);
+
+      const textElem = document.querySelector(".text");
+      // console.log(textElem);
+
+      const textElems = document.querySelectorAll(".text");
+      textElems[2].style.background = "red";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .item {
+        font-size: 24px;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="list"></ul>
+    <script>
+      // const fruits = ["🍎", "🍌", "🍇"];
+      const fruits = [
+        { name: "사과", pic: "🍎" },
+        { name: "바나나", pic: "🍌" },
+        { name: "포도", pic: "🍇" },
+      ];
+      const listElem = document.querySelector(".list");
+
+      console.time(); // 성능 측정 시작
+      for (let i = 0; i < fruits.length; i++) {
+        const liElem = document.createElement("li");
+        liElem.classList.add("item");
+        // liElem.textContent = fruits[i];
+        liElem.innerHTML = `${fruits[i].pic} <strong>${fruits[i].name}</strong>`;
+        listElem.appendChild(liElem);
+
+        liElem.addEventListener("click", () => {
+          console.log(this);
+          liElem.remove();
+        });
+      }
+      console.timeEnd(); // 성능 측정 종료
+    </script>
+  </body>
+</html>

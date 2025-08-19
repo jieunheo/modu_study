@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 배열 메서드</title>
+  </head>
+  <body>
+    <script>
+      // 배열에 값 추가하기
+      let nums = [1, 2];
+      nums.push(3); // 배열 맨 뒤에 3 추가
+      console.log(nums);
+
+      // 배열에서 값 꺼내기
+      let items = ["a", "b", "c"];
+      let last = items.pop(); // 마지막 요소 제거 후 last에 저장
+      console.log(last);
+
+      // 배열 맨 앞 다루기
+      let fruits = ["banana", "melon"];
+      fruits.unshift("apple"); // 맨 앞에 "apple" 추가
+      console.log(fruits.shift()); // 맨 앞 요소 제거 후 출력
+
+      // 요소 잘라내기 - slice(새 배열 생성).
+      const arr = [1, 2, 3, 4, 5];
+
+      const s1 = arr.slice(1, 4);
+      // 인덱스 1(=2)부터 4 직전(=3번 인덱스, 값 4)까지 잘라서 새 배열 반환
+      // 즉, [2,3,4]를 새 배열로 얻음
+
+      console.log(s1); // [2,3,4]  ← 잘라낸 복사본
+      console.log(arr); // [1,2,3,4,5]  ← 원본은 변하지 않음
+
+      // 요소 수정·삭제·추가 - splice(새 배열 생성 X).
+      const arr2 = [1, 2, 3, 4, 5];
+
+      const s2 = arr2.splice(1, 2, 99, 100);
+      // 인덱스 1부터 시작해 2개 요소([2,3])를 삭제
+      // 삭제한 자리(인덱스 1 위치)에 99와 100을 삽입
+      // 원본 배열이 바로 수정됨
+
+      console.log(s2); // [2,3]  ← 삭제된 요소들이 반환됨
+      console.log(arr2); // [1,99,100,4,5]  ← 원본이 수정됨
+
+      // 배열 합치기 - concat
+      let a = [1, 2];
+      let b = [3, 4];
+      let all = a.concat(b);
+      console.log(all); // [1,2,3,4]  ← a와 b를 합친 새 배열
+
+      // 반복 작업 - forEach > 앞서 for in 문과 유사하지만, 배열의 각 요소에 대해 함수를 실행
+      ["one", "two", "three"].forEach((item) => {
+        console.log(item);
+      });
+
+      // 조건 찾기 - find, filter
+      let users = [{ id: 1 }, { id: 2 }, { id: 3 }];
+      let findArr = users.find((user) => user.id === 2); // id가 2인 첫 번째 요소 찾기
+      let filterArr = users.filter((user) => user.id >= 2); // id가 2 이상인 모든 요소 찾기
+      console.log(findArr);
+      console.log(filterArr);
+
+      // 배열 변환 - map
+      let names = ["Kim", "Lee", "Park"];
+      let upper = names.map((name) => name.toUpperCase());
+      console.log(upper); // ["KIM", "LEE", "PARK"]  ← 각 이름을 대문자로 변환한 새 배열
+
+      // 정렬과 역순 - sort, reverse
+      let nums2 = [3, 1, 4, 2];
+
+      nums2.sort((a, b) => a - b);
+      // sort는 기본적으로 문자열 기준 정렬이라
+      // 숫자 크기대로 정렬하려면 비교 함수를 넣어야 함
+      // a - b > 0 이면 b가 앞으로, a - b < 0 이면 a가 앞으로
+      // 결과: [1, 2, 3, 4] (오름차순 정렬)
+
+      nums2.reverse();
+      // 배열을 뒤집음 (순서 반전)
+      // 결과: [4, 3, 2, 1] (내림차순 정렬)
+
+      console.log(nums2);
+      // 출력: [4, 3, 2, 1]
+
+      // 배열의 원소를 문자열로 합치기
+      let words = ["hello", "world"];
+
+      // join(" ") → 배열 요소들을 하나의 문자열로 합침
+      // 구분자로 공백(" ")을 넣었기 때문에 "hello world"가 됨
+      let str = words.join(" ");
+
+      // 최종 결과 출력
+      console.log(str); // "hello world"
+
+      // 문자열 잘라서 배열로 만들기
+      let str2 = "hello world";
+
+      // split(" ") → 공백을 기준으로 나눔
+      let words2 = str.split(" ");
+
+      console.log(words2); // ["hello", "world"]
+
+      // 누적 계산 - reduce
+      let nums3 = [1, 2, 3];
+
+      let sum = nums3.reduce((acc, val) => acc + val, 0);
+      // reduce는 배열을 "누적(accumulate)"해서 하나의 값으로 줄여줌
+      // (acc: 누적값, val: 현재 요소)
+      //
+      // 초기값을 0으로 설정했으므로 첫 호출 때 acc = 0, val = 1
+      // 1회차: acc=0, val=1 → acc+val = 1
+      // 2회차: acc=1, val=2 → acc+val = 3
+      // 3회차: acc=3, val=3 → acc+val = 6
+      //
+      // 최종 결과: 6
+
+      console.log(sum);
+      // 출력: 6
+
+      // 배열인지 확인 - Array.isArray
+      console.log(Array.isArray([1, 2, 3])); // true
+      console.log(Array.isArray("hello")); // false
+
+      // 펼침(Spread)연산자와 구조분해할당(Destructuring)
+      // 스프레드 연산자 (Spread)
+      // 배열 복사
+      const arr4 = [1, 2, 3];
+      const copy = [...arr4];
+      console.log(copy); // [1, 2, 3]
+
+      // 배열 합치기
+      const more = [4, 5];
+      const merged = [...arr4, ...more];
+      console.log(merged); // [1, 2, 3, 4, 5]
+
+      // 함수 인자에 풀어쓰기
+      function sum(a, b, c) {
+        return a + b + c;
+      }
+      console.log(sum(...arr4)); // 6 (1+2+3)
+
+      // 객체 복사/합치기
+      const user = { name: "Kim", age: 20 };
+      const info = { country: "KR" };
+      const newUser = { ...user, ...info, age: 21 };
+      console.log(newUser);
+      // { name: "Kim", age: 21, country: "KR" }
+
+      // 레스트 연산자 (Rest)
+      // 함수 인자에서
+      function collect(...args) {
+        console.log(args);
+      }
+      collect(1, 2, 3, 4); // [1, 2, 3, 4]
+
+      // 배열 구조 분해에서
+      const numbers = [10, 20, 30, 40];
+      const [first, ...rest] = numbers;
+      console.log(first); // 10
+      console.log(rest); // [20, 30, 40]
+
+      // 객체 구조 분해에서
+      const person = { name: "Lee", age: 25, city: "Seoul" };
+      const { name, ...others } = person;
+      console.log(name); // "Lee"
+      console.log(others); // { age: 25, city: "Seoul" }
+
+      // 구조분해할당(Destructuring)
+      // 배열 구조분해
+      const arr6 = [1, 2, 3];
+
+      // 기존 방식
+      const a2 = arr[0];
+      const b2 = arr[1];
+
+      // 구조분해할당
+      const [x, y] = arr6;
+      console.log(x); // 1
+      console.log(y); // 2
+
+      // 객체 구조분해
+      const user2 = { name: "Tom", age: 20 };
+
+      // 기존 방식
+      const name2 = user2.name;
+      const age2 = user2.age;
+
+      // 구조분해할당
+      const { name3, age3 } = user2;
+      console.log(name3); // Tom
+      console.log(age3); // 20
+    </script>
+  </body>
+</html>

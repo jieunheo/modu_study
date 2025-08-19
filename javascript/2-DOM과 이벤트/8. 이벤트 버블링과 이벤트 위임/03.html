@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document 이벤트 위임</title>
+    <style>
+      .menu {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .menu-item {
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        margin: 5px 0;
+        cursor: pointer;
+      }
+
+      .wrapper
+      /* .menu-item i,
+      .menu-item span */ {
+        pointer-events: none; /* 아이콘 클릭 이벤트 무시 */
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="menu">
+      <li class="menu-item" data-id="1">
+        <div class="wrapper"><i>🍕</i> <span>피자</span></div>
+      </li>
+      <li class="menu-item" data-id="2">
+        <div class="wrapper"><i>🍔</i> <span>햄버거</span></div>
+      </li>
+      <li class="menu-item" data-id="3">
+        <div class="wrapper"><i>🍜</i> <span>라면</span></div>
+      </li>
+    </ul>
+
+    <script>
+      const menu = document.querySelector(".menu");
+
+      menu.addEventListener("click", (event) => {
+        console.log("선택한 항목:", event.target.textContent);
+        if (event.target.tagName === "LI") {
+          console.log(event.target.dataset.id);
+        }
+      });
+    </script>
+  </body>
+</html>

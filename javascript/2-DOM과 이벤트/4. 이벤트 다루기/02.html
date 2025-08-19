@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .text {
+        font-style: italic;
+        color: purple;
+      }
+
+      .special {
+        font-size: 100px;
+        background-color: hotpink;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 id="title">안녕!</h1>
+    </header>
+    <button class="btn">클릭</button>
+
+    <script>
+      const title = document.getElementById("title");
+      const btn = document.querySelector(".btn");
+
+      // btn.onclick = clickHandler;
+      // btn.onclick = () => {
+      //   clickHandler();
+      //   clickHandler2();
+      // };
+      btn.addEventListener("click", clickHandler);
+      btn.addEventListener("click", clickHandler2);
+
+      function clickHandler() {
+        // text1.classList.add('special');
+        // text1.classList.remove('special');
+        title.classList.toggle("special");
+
+        title.style.cssText = `
+          background-color: blue;
+        `;
+      }
+
+      function clickHandler2() {
+        console.log("gg");
+      }
+    </script>
+  </body>
+</html>

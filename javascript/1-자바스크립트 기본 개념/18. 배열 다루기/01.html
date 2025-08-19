@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 배열 다루기</title>
+  </head>
+  <body>
+    <script>
+      const movies = [
+        "케이팝 데몬 헌터스",
+        "나 홀로 집에",
+        "오펀",
+        "추격자",
+        "러브 액츄얼리",
+      ];
+
+      // console.log(movies[4]); // "러브 액츄얼리"
+      // console.log(movies.length); // 5
+
+      for (let i = 0; i < movies.length; i++) {
+        console.log(movies[i]);
+      }
+
+      for (let item of movies) {
+        console.log(item);
+      }
+
+      let 영화 = movies;
+      영화.push("강시");
+      console.log(영화);
+      console.log(movies);
+
+      // 배열 비우기 - length 속성을 0으로 설정하면 배열이 비워짐.
+      // movies.length = 0;
+      // console.log(movies); // []
+
+      // 다차원 배열 - 배열 안에 배열
+      let board = [
+        [1, 2],
+        [3, 4],
+      ];
+
+      console.log(board[1][0]); // 3
+    </script>
+  </body>
+</html>

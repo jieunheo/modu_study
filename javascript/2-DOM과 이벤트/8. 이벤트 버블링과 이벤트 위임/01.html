@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        min-height: 100vh;
+        margin: 0;
+      }
+      .box {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 5px solid crimson;
+        cursor: crosshair;
+
+        transform: translateX(-105%);
+        transition: all 0.3s;
+      }
+
+      .box-on {
+        transform: translateX(0);
+      }
+
+      .btn {
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 10px;
+        margin: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab neque voluptas
+      sed, laudantium ad, corporis odio quidem adipisci cupiditate aliquid velit
+      doloribus ex exercitationem, rem accusantium iure debitis illum atque!
+    </div>
+    <button class="btn">Button A</button>
+    <script>
+      const box = document.querySelector(".box");
+      const btn = document.querySelector(".btn");
+
+      box.addEventListener("click", function (e) {
+        // console.log(e.currentTarget); // 이벤트가 바인딩된 요소, this와 동일
+        e.stopPropagation(); // 프로퍼게이션
+      });
+      btn.addEventListener("click", function (e) {
+        console.log("버튼 클릭: 메뉴 열기/닫기");
+        box.classList.toggle("box-on");
+
+        // 이벤트 전파를 중지하여 body 클릭 이벤트가 발생하지 않도록 함
+        e.stopPropagation(); // 프로퍼게이션
+      });
+
+      document.body.addEventListener("click", function (e) {
+        // body에 클릭 이벤트를 추가하여 box가 보이도록 함
+        console.log("바디 클릭: 메뉴 닫기");
+        box.classList.remove("box-on");
+      });
+    </script>
+  </body>
+</html>
