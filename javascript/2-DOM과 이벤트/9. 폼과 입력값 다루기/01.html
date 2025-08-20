@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="signup-form">
+      <input name="username" type="text" placeholder="아이디" /><br />
+      <input name="password" type="password" placeholder="비밀번호" /><br />
+      <input name="email" type="email" placeholder="이메일" /><br />
+
+      <label><input type="radio" name="gender" value="female" /> 여성</label>
+      <label><input type="radio" name="gender" value="male" /> 남성</label>
+      <label><input type="radio" name="gender" value="none" /> 선택안함</label
+      ><br />
+
+      <button>회원가입</button>
+    </form>
+
+    <script>
+      const form = document.getElementById("signup-form");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault(); // 폼 전송 시 페이지 새로고침 방지
+        console.log("폼이 전송됨 (페이지 새로고침 없음)");
+      });
+    </script>
+  </body>
+</html>

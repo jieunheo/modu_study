@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        border: 5px solid lime;
+      }
+
+      .box {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: purple;
+        opacity: 0.5;
+        color: white;
+        animation: rotaition 1s linear infinite;
+      }
+
+      @keyframes rotaition {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">A</div>
+      <div class="box">B</div>
+      <div class="box">C</div>
+      <div class="box">D</div>
+      <div class="box">E</div>
+    </div>
+    <div id="message"></div>
+    <script>
+      // 각각의 박스에 data-id를 1~5까지 설정
+      // 클릭한 박스는 사라지게
+      const boxes = document.querySelectorAll(".box");
+      const message = document.getElementById("message");
+
+      let numberOfBoxes = boxes.length;
+
+      // let id = 1; // data-id를 1부터 시작
+      boxes.forEach((box, index) => {
+        box.style.cssText = `
+          left: ${Math.random() * 270}px;
+          top: ${Math.random() * 270}px;
+        `;
+
+        // data-id 속성 추가
+        // box.dataset.id = id++; // 외부의 id 변수를 사용하여 1부터 시작
+        box.dataset.id = index + 1; // forEach의 index를 사용하여 1부터 시작
+
+        // currentTarget 사용
+        // box.addEventListener("click", removeBox);
+      });
+
+      // function removeBox(e) {
+      //   this.remove(); // this는 이벤트 리스너가 바인딩된 요소를 가리킴
+      //   // e.currentTarget.remove();
+      // }
+
+      // 이벤트 위임 사용 - target
+      const container = document.querySelector(".container");
+      container.addEventListener("click", (e) => {
+        const targetBox = e.target; // 클릭한 요소
+        // 클릭한 요소가 박스인지 확인
+        if (targetBox.classList.contains("box") === false) return;
+
+        // 박스 지우기
+        e.target.remove();
+
+        // 카운팅
+        numberOfBoxes--;
+        if (numberOfBoxes === 0) {
+          message.textContent = "축하합니다!";
+        }
+      });
+    </script>
+  </body>
+</html>

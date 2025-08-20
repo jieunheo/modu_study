@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클래스</title>
+  </head>
+  <body>
+    <script>
+      class User {
+        // 생성자
+        constructor(username, hp = 100) {
+          this.username = username;
+          this.hp = hp;
+        }
+
+        // 메서드
+        sayHello() {
+          console.log(
+            `안녕하세요, ${this.username}입니다. 현재 체력은 ${this.hp}입니다.`
+          );
+        }
+      }
+
+      // 상속
+      class Manager extends User {
+        constructor(username, hp, car) {
+          super(username, hp); // 부모 클래스의 생성자 호출
+          this.car = car;
+        }
+
+        drive() {
+          console.log(`${this.username}가 ${this.car} 운전중`);
+        }
+      }
+
+      // 인스턴스 생성
+      const user1 = new User("철수");
+      const user2 = new User("유나", 70);
+      const user3 = new User("수빈", 95);
+      user1.sayHello();
+      user2.sayHello();
+      user3.sayHello();
+
+      const user4 = new Manager("영희", 80, "픽업트럭");
+      user4.drive();
+    </script>
+  </body>
+</html>
