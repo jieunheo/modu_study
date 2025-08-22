@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mini alert</title>
+    <link rel="stylesheet" href="./mini-alert/mini-alert.css" />
+  </head>
+  <body>
+    <button id="btn">미니 얼럿 띄우기</button>
+
+    <!-- <div class="mini-alert-backdrop">
+      <div class="mini-alert">
+        <div class="mini-alert-content">
+          <h2 class="mini-alert-title">제목</h2>
+          <p class="mini-alert-message">메세지 내용</p>
+          <button class="mini-alert-close-btn">확인</button>
+        </div>
+      </div>
+    </div> -->
+
+    <script type="module">
+      import MiniAlert from "./mini-alert/MiniAlert.js";
+
+      document.getElementById("btn").addEventListener("click", () => {
+        // console.log("클릭");
+        new MiniAlert({
+          title: "오오",
+          message: "축하합니다!",
+          onClose: () => {
+            console.log("미니얼럿 닷힘 콜백");
+          },
+          // useBackdropClose: false,
+        });
+      });
+    </script>
+  </body>
+</html>

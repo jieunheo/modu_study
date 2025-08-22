@@ -13,33 +13,53 @@ const log = document.getElementById("log");
 // 초기 잔액 보여주기
 updateBalance();
 
-// 입금
-depositBtn.addEventListener("click", () => {
+// // 입금
+// depositBtn.addEventListener("click", () => {
+//   const amount = +amountInput.value;
+//   bankAccount.deposit(amount);
+
+//   // 잔액 업데이트
+//   updateBalance();
+
+//   // 입출금 내역 추가
+//   addLog(`입금: ${amount.toLocaleString()}원`);
+
+//   amountInput.value = ""; // 입력 필드 초기화
+// });
+
+// // 출금
+// withdrawBtn.addEventListener("click", () => {
+//   const amount = +amountInput.value;
+//   bankAccount.withdraw(amount);
+
+//   // 잔액 업데이트
+//   updateBalance();
+
+//   // 입출금 내역 추가
+//   addLog(`출금: ${amount.toLocaleString()}원`);
+
+//   amountInput.value = ""; // 입력 필드 초기화
+// });
+
+// 중복 코드 하나로 묶기
+function handleTransaction(type) {
   const amount = +amountInput.value;
-  bankAccount.deposit(amount);
+
+  if (type === "deposit") {
+    bankAccount.deposit(amount);
+    addLog(`입금: ${amount.toLocaleString()}원`);
+  } else {
+    bankAccount.withdraw(amount);
+    addLog(`출금: ${amount.toLocaleString()}원`);
+  }
 
   // 잔액 업데이트
   updateBalance();
 
-  // 입출금 내역 추가
-  addLog(`입금: ${amount.toLocaleString()}원`);
-
   amountInput.value = ""; // 입력 필드 초기화
-});
-
-// 출금
-withdrawBtn.addEventListener("click", () => {
-  const amount = +amountInput.value;
-  bankAccount.withdraw(amount);
-
-  // 잔액 업데이트
-  updateBalance();
-
-  // 입출금 내역 추가
-  addLog(`출금: ${amount.toLocaleString()}원`);
-
-  amountInput.value = ""; // 입력 필드 초기화
-});
+}
+depositBtn.addEventListener("click", () => handleTransaction("deposit"));
+withdrawBtn.addEventListener("click", () => handleTransaction("withdraw"));
 
 // 잔액 업데이트
 function updateBalance() {
