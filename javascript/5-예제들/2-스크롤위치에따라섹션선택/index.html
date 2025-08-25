@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스크롤</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      #info {
+        position: fixed;
+        left: 20px;
+        top: 20px;
+      }
+      .section {
+        box-sizing: border-box;
+        height: 100vh;
+        padding: 5rem;
+        border: 1px solid #000;
+      }
+      .section:nth-child(odd) {
+        text-align: right;
+        background-color: pink;
+      }
+
+      .progress {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 10px;
+        background-color: blue;
+      }
+
+      .star {
+        position: fixed;
+        left: 50px;
+        top: 50px;
+        font-size: 100px;
+        transform-origin: bottom;
+
+        transition: all 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="info">info</p>
+
+    <div class="progress"></div>
+    <div class="star">⭐</div>
+
+    <div class="sections">
+      <section class="section">
+        <h2>section 0</h2>
+      </section>
+      <section class="section">
+        <h2>section 1</h2>
+      </section>
+      <section class="section">
+        <h2>section 2</h2>
+      </section>
+      <section class="section">
+        <h2>section 3</h2>
+      </section>
+      <section class="section">
+        <h2>section 4</h2>
+      </section>
+
+      <script>
+        const info = document.getElementById("info");
+        const progress = document.querySelector(".progress");
+        const star = document.querySelector(".star");
+        let currentCection = 0;
+
+        window.addEventListener("scroll", (e) => {
+          info.innerHTML = `
+            현재 스크롤 위치(window.scrollY): ${window.scrollY}<br> 
+            현재 스크롤 위치 / 브라우저 창 높이: ${
+              window.scrollY / window.innerHeight
+            }`;
+
+          const newSection = Math.round(window.scrollY / window.innerHeight);
+          // console.log(newScrtion);
+
+          if (currentCection !== newSection) {
+            console.log("새 섹션 진입");
+            console.log(
+              `currentCection: ${currentCection}, newSection: ${newSection}`
+            );
+            currentCection = newSection;
+
+            showEffact(newSection);
+          }
+        });
+
+        function showEffact(index) {
+          console.log(`${index}번 섹션에서 뭔가 하기`);
+          if (star.style.transform === "rotate(0deg)")
+            star.style.transform = `rotate(360deg)`;
+          else star.style.transform = `rotate(0deg)`;
+        }
+        // 처음 브라우저 실행 시
+        showEffact(currentCection);
+      </script>
+    </div>
+  </body>
+</html>
