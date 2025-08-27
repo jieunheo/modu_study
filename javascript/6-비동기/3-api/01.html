@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2px;
+      }
+      img {
+        aspect-ratio: 6/5;
+        width: 30%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="number" class="num" min="1" />
+    <button class="btn">찾기</button>
+    <section class="container"></section>
+    <script>
+      // https://free-apis.github.io
+      // https://dog.ceo/dog-api/
+
+      const URL = `https://dog.ceo/api/breeds/image/random`;
+      const container = document.querySelector(".container");
+      const num = document.querySelector(".num");
+      const btn = document.querySelector(".btn");
+
+      const showDogPic = async (num = 1) => {
+        if (!num) num = 1;
+
+        try {
+          const res = await fetch(`${URL}/${num}`);
+          if (!res.ok) throw new Error("오류!!");
+
+          const data = await res.json();
+          console.log(data);
+
+          container.innerHTML = "";
+          // 하나만 있는 경우에는 위 코드 지우고 append 대신 replaceChildren() 가능
+
+          data.message.forEach((img) => {
+            const imgElem = document.createElement("img");
+            // imgElem.setAttribute("src", img);
+            imgElem.src = img;
+            container.append(imgElem);
+          });
+        } catch (err) {
+          console.log(err);
+        }
+      };
+
+      btn.addEventListener("click", () => {
+        showDogPic(num.value);
+      });
+    </script>
+  </body>
+</html>
