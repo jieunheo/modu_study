@@ -4,17 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>이미지 슬라이더</title>
-    <link rel="stylesheet" href="./style.css" />
-    <!-- <script src="./01.js" defer></script> -->
+    <link rel="stylesheet" href="./style2.css" />
   </head>
   <body>
-    <section id="temp"></section>
+    <div id="temp" style="width: 50vw; outline: 1px solid black"></div>
+    <div id="temp2" style="width: 300px; outline: 1px solid black"></div>
 
     <script type="module">
       import MiniSlider from "./MiniSlider.js";
 
+      const data = [
+        {
+          id: "aa15040",
+          title: "이미지 A0",
+          src: "images/a0.png",
+        },
+        {
+          id: "bb24321",
+          title: "이미지 A1",
+          src: "images/a1.png",
+        },
+        {
+          id: "cc46232",
+          title: "이미지 A2",
+          src: "images/a2.png",
+        },
+      ];
+
       new MiniSlider({
-        // containerSelector: "#temp",
+        containerSelector: "#temp",
+        data,
+        interval: 3000,
+        autoPlay: true,
+      });
+
+      new MiniSlider({
+        containerSelector: "#temp2",
+        data: data,
+        interval: 1000,
+        autoPlay: false,
       });
     </script>
   </body>

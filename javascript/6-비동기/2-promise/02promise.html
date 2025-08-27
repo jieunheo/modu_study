@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function question() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            const result = prompt("전주 최고의 맛집은?", "허가낸닭발");
+            if (result === "허가낸닭발") {
+              //성공
+              resolve("정답!!!!");
+            } else {
+              //실패
+              reject("떙~~~~");
+            }
+          }, 1000);
+        });
+      }
+
+      function step1(value) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log("step1 입력값", value);
+            resolve("step1 완료");
+          }, 1000);
+        });
+      }
+
+      function step2(value) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            console.log("step2 입력값", value);
+            resolve("step2 완료");
+          }, 1000);
+        });
+      }
+
+      question()
+        .then((result) => {
+          console.log("question 성공! 정답 맞춤", result);
+
+          return step1(result);
+        })
+        .then((result) => {
+          console.log("step1 성공: ", result);
+
+          return step2(result);
+        })
+        .then((result) => {
+          console.log("step2 성공: ", result);
+        })
+        .catch((result) => {
+          console.error("❌", result);
+        })
+        .finally(() => {
+          setTimeout(() => {
+            console.log("finally");
+          }, 1000);
+        });
+    </script>
+  </body>
+</html>
