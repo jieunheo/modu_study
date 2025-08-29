@@ -5,9 +5,9 @@ https://photo-upload-test.onrender.com
 
 
 [POST]
-/api/upload
-/api/choose-frame
-/api/delivery
+/api/upload        // 사진 업로드
+/api/choose-frame  // 액자 선택
+/api/delivery      // 배송 요청
 
 [GET]
-/api/photos
+/api/photos        // 사진 가져오기
