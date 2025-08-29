@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>GSAP ScrollTrigger — 주석 버전</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui;
+        margin: 0;
+      }
+      /* 첫 섹션(히어로). 스크롤 시작 지점 */
+      .hero {
+        height: 60vh; /* 화면의 60% 높이 */
+        display: grid;
+        place-items: center; /* 가운데 정렬 */
+        background: #eef2ff;
+        position: relative; /* 자식 패럴랙스 대비 */
+        overflow: hidden; /* 내부 요소가 삐져나오지 않게 */
+      }
+      .hero h1 {
+        margin: 0;
+        font-size: 42px;
+      }
+
+      /* 간격용 빈 영역(스크롤 여유) */
+      .spacer {
+        height: 40vh;
+      }
+
+      /* 카드 그리드 섹션 */
+      .cards {
+        max-width: 900px;
+        margin: 0 auto;
+        display: grid;
+        gap: 16px;
+        padding: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      /* 카드 초기 상태: 보이지 않음(투명+아래로 내려가 있음) */
+      .card {
+        background: #f8fafc;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        padding: 24px;
+        opacity: 0; /* 등장 전 숨김 */
+        transform: translateY(24px); /* 아래에서 위로 올라오는 느낌 */
+      }
+
+      /* 핀(고정) 데모용 패널 */
+      .panel {
+        height: 80vh;
+        display: grid;
+        place-items: center;
+        background: #ecfeff;
+        font-size: 28px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <h1 class="title">ScrollTrigger 데모</h1>
+    </section>
+
+    <div class="spacer"></div>
+
+    <section class="cards">
+      <div class="card">카드 1</div>
+      <div class="card">카드 2</div>
+      <div class="card">카드 3</div>
+      <div class="card">카드 4</div>
+    </section>
+
+    <section class="panel">핀(고정) 섹션</section>
+
+    <div class="spacer"></div>
+
+    <!-- GSAP Core + ScrollTrigger 플러그인 -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script>
+      // 0) 플러그인 등록: ScrollTrigger 기능을 gsap에 연결
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 1) 히어로 타이틀 살짝 패럴랙스 효과
+      gsap.to(".title", {
+        y: -180, // 스크롤할수록 위로 80px 이동
+        opacity: 0.2, // 살짝 흐리게
+        // ScrollTrigger 옵션 객체
+        scrollTrigger: {
+          trigger: ".hero", // 이 요소가 기준이 된다(앵커)
+          start: "top top", // 트리거의 top이 뷰포트의 top에 닿을 때 시작
+          end: "bottom top", // 트리거의 bottom이 뷰포트의 top에 닿을 때 끝
+          scrub: true, // 스크롤 양에 비례해 애니메이션 재생(스크럽)
+          // scrub: 1 처럼 숫자를 주면 스무딩(보간) 시간(초)
+          // markers: true, // 디버그용 마커(시작/끝 선) 표시
+        },
+      });
+
+      // 2) 카드 섹션: 뷰포트에 들어올 때 순차(스터거)로 등장
+      gsap.to(".card", {
+        opacity: 1,
+        y: 0, // 최종 상태(보이기 + 제자리)
+        duration: 0.6,
+        ease: "power2.out",
+        stagger: 0.12, // 요소마다 0.12초 간격으로 시작(스태거)
+        scrollTrigger: {
+          trigger: ".cards", // .cards가 기준
+          start: "top 80%", // 트리거 top이 뷰포트 높이의 80% 지점에 닿으면 시작
+          // => 즉 화면 아래쪽 근처에서 부드럽게 등장
+          // end를 안 주면 기본적으로 "start 시점에 트윈 시작"만 신경쓰고 끝남
+          // once 효과를 원하면 onEnter 콜백에서 kill() 하거나 toggleActions 활용 가능
+          // toggleActions 예: "play none none none"
+          toggleActions: "play reverse play reverse",
+          // onEnter | onLeave | onEnterBack | onLeaveBack
+        },
+      });
+
+      // 3) 핀(고정) + 스크럽 애니메이션
+      gsap.to(".panel", {
+        scale: 1.1, // 고정되어 있는 동안 살짝 확대
+        duration: 1, // scrub:true면 duration은 상대적 의미(모션 곡선 정도)
+        scrollTrigger: {
+          trigger: ".panel", // 이 섹션이 기준
+          start: "top top", // 패널의 top이 뷰포트 top에 닿는 순간부터
+          end: "+=80%", // 시작 지점에서 **스크롤 80% 더 진행될 때까지**(상대 길이)
+          // "+=값" 형식은 "현재 위치에서 추가로 얼마나"의 의미
+          scrub: true, // 스크롤과 모션을 동기화(앞뒤 스크럽 가능)
+          pin: true, // 이 구간 동안 .panel을 화면에 '고정'시킴(스티키 느낌)
+          // pinSpacing: true   // 기본 true: 고정 동안 레이아웃 밀림 보정용 공간을 자동 추가
+          // markers: true
+        },
+      });
+
+      // ---------------------------------------------------------
+      // 💡 start/end 구문 요약
+      //   - "top top"    : 트리거의 top과 뷰포트의 top이 만날 때
+      //   - "top 80%"    : 트리거의 top이 뷰포트의 세로 80% 위치와 만날 때
+      //   - "center center", "bottom top" 등 9가지 조합 가능
+      //   - "+=80%"      : 현재 계산된 start로부터 추가 스크롤 거리(상대값)
+      //
+      // 💡 자주 겪는 상황 팁
+      //   - 상단에 고정 헤더가 있을 때: start를 "top+=헤더높이 top"처럼 보정
+      //       예) start: "top+=64 top"
+      //   - 이미지 로딩 등 레이아웃이 바뀌면: ScrollTrigger.refresh()로 재계산
+      //   - 디버깅: markers:true로 시작/끝 위치를 눈으로 확인
+      // ---------------------------------------------------------
+    </script>
+  </body>
+</html>
