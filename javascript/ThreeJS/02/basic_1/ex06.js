@@ -1,0 +1,78 @@
+import * as THREE from "three";
+
+// 안개
+
+// Randerer
+const canves = document.getElementById("three-canvas");
+const renderer = new THREE.WebGLRenderer({
+  canvas: canves,
+  antialias: true,
+});
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1); // 디바이스따라서
+
+// Scene
+const scene = new THREE.Scene();
+scene.fog = new THREE.Fog("black", 3, 5);
+
+// Camera
+const camera = new THREE.PerspectiveCamera( // 원근 적용 카메라
+  75, // 시야각(fov: field of view)
+  window.innerWidth / window.innerHeight, // 종횡비(aspect)
+  0.1, // 가까이(near)
+  1000 // 멀리(far)
+);
+// camera.position.x = 2;
+camera.position.y = 2;
+camera.position.z = 5;
+scene.add(camera); // 무대에 카메라 조립
+
+// Light
+const ambientLite = new THREE.AmbientLight("white"); // AmbientLight: 톤만 조정
+// scene.add(ambientLite);
+
+const spotLight = new THREE.SpotLight("white", 100); // SpotLight: 톤만 조정
+spotLight.position.set(1, 3, 3);
+scene.add(ambientLite, spotLight);
+
+// Mash
+const geometry = new THREE.BoxGeometry(1, 1, 1); // 직육면체
+const material = new THREE.MeshLambertMaterial({
+  color: "dodgerblue",
+});
+const mesh = new THREE.Mesh(geometry, material);
+scene.add(mesh);
+const mesh2 = mesh.clone();
+mesh2.position.z = 1.5;
+scene.add(mesh2);
+
+// Render
+const clock = new THREE.Clock();
+function animate() {
+  const delta = clock.getDelta();
+
+  // 이동
+  if (mesh.position.y > 3) mesh.position.y = 0;
+  mesh.position.y += delta;
+
+  camera.lookAt(mesh.position); // 카메라가 가운데로
+
+  renderer.render(scene, camera);
+}
+
+renderer.setAnimationLoop(animate); // requestAnimationFrame 대신 사용 가능
+animate();
+
+// Event
+window.addEventListener("resize", setSize);
+function setSize() {
+  // 카메라 업데이트
+  camera.aspect = window.innerWidth / window.innerHeight; // 종횡비
+  camera.updateProjectionMatrix(); // 카메라 투영에 관한 값이 변화가 있는 경우 실행
+
+  // renderer 사이즈 업데이트
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  // render
+  renderer.render(scene, camera);
+}

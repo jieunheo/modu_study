@@ -1,0 +1,6 @@
+#three-canvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: red; /* renderer 배경에 투명도가 있을 때 같이 보임 */
+}
