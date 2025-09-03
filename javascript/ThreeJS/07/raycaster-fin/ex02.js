@@ -1,13 +1,13 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 // ----- 특정 방향의 광선(Ray)에 맞은 Mesh 판별하기
 
 // Renderer
-const canvas = document.getElementById('three-canvas');
+const canvas = document.getElementById("three-canvas");
 const renderer = new THREE.WebGLRenderer({
   canvas,
-  antialias: true
+  antialias: true,
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
@@ -27,10 +27,10 @@ camera.position.z = 4;
 scene.add(camera);
 
 // Light
-const ambientLight = new THREE.AmbientLight('white', 1);
+const ambientLight = new THREE.AmbientLight("white", 1);
 scene.add(ambientLight);
 
-const directionalLight = new THREE.DirectionalLight('white', 2);
+const directionalLight = new THREE.DirectionalLight("white", 2);
 directionalLight.position.x = 1;
 directionalLight.position.z = 2;
 scene.add(directionalLight);
@@ -40,61 +40,53 @@ const controls = new OrbitControls(camera, renderer.domElement);
 // Mesh
 const geometry = new THREE.BoxGeometry(1, 1, 1);
 const material = new THREE.MeshStandardMaterial({
-  color: 'seagreen'
+  color: "seagreen",
 });
 const box = new THREE.Mesh(geometry, material);
 const geometry2 = new THREE.SphereGeometry(0.5, 32, 32);
 const material2 = new THREE.MeshStandardMaterial({
-  color: 'orange'
+  color: "orange",
 });
 const ball = new THREE.Mesh(geometry2, material2);
 ball.position.z = -2;
-box.name = 'box';
-ball.name = 'ball';
+box.name = "box";
+ball.name = "ball";
 scene.add(box, ball);
-
-// 노란선
-const lineMaterial = new THREE.LineBasicMaterial({ color: 'yellow' });
-const points = [];
-points.push(new THREE.Vector3(0, 0, 100));
-points.push(new THREE.Vector3(0, 0, -100));
-const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
-const line = new THREE.Line(lineGeometry, lineMaterial);
-scene.add(line);
-
-window.addEventListener('resize', setSize);
-renderer.setAnimationLoop(animate);
 
 const clock = new THREE.Clock();
 const raycaster = new THREE.Raycaster();
+const mouse = { x: 0, y: 0 };
+let isDragging = false; // 드레그 화면 true
+
+window.addEventListener("mousedown", () => (isDragging = false));
+window.addEventListener("mousedmove", () => (isDragging = true));
+window.addEventListener("resize", setSize);
+window.addEventListener("click", (e) => {
+  if (isDragging) return;
+  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera); // 마우스좌표 정보와 카메라를 이용해서 설정
+
+  // ray(광선)에 맞은 메쉬들을 체크
+  const intersects = raycaster.intersectObjects(scene.children);
+  for (const item of intersects) {
+    if (item.object.isMesh) {
+      console.log(item.object.name);
+      item.object.material.color.set("red");
+      break;
+    }
+  }
+});
+
+renderer.setAnimationLoop(animate);
 
 function animate() {
   const time = clock.getElapsedTime();
 
-  ball.position.y = Math.sin(time*2);
-  box.position.y = Math.cos(time*2);
+  ball.position.y = Math.sin(time * 2);
+  box.position.y = Math.cos(time * 2);
 
-  const origin = points[0];
-  const direction = points[1];
-  direction.normalize();
-  raycaster.set(origin, direction); // ray 세팅
-
-  scene.children.forEach(item => {
-    console.log(item)
-    if (item.isMesh) {
-      item.material.color.set('hotpink');
-    }
-  });
-
-  // ray(광선)에 맞은 메쉬들을 체크
-  const intersects = raycaster.intersectObjects(scene.children);
-  intersects.forEach(item => {
-    if (item.object.isMesh) {
-      console.log(item.object.name);
-      item.object.material.color.set('blue');
-    }
-  });
-  
   renderer.render(scene, camera);
 }
 
