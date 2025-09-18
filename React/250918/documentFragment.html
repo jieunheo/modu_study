@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DocumentFragment</title>
+  </head>
+  <body>
+    <main>
+      <h1>Fragment test</h1>
+
+      <!-- <figure>
+        <img
+          src="https://i.ytimg.com/vi/OebUwWL0QMY/mqdefault.jpg"
+          alt="주인의 손을 보고 함께 손을 벌린 아기 고양이"
+        />
+        <figcaption>고양이가 깜짝 놀란 듯이 앞발을 활짝 벌리고 있다</figcaption>
+      </figure> -->
+    </main>
+
+    <script>
+      const main = document.querySelector("main");
+
+      // const figArray = [];
+
+      const frag = document.createDocumentFragment();
+      for (let i = 0; i < 10; i++) {
+        const figure = document.createElement("figure");
+        // createElement로 요소를 하나씩 생성해서 추가하기
+        // const img = document.createElement("img");
+        // img.src = "https://i.ytimg.com/vi/OebUwWL0QMY/mqdefault.jpg";
+        // img.alt = "주인의 손을 보고 함께 손을 벌린 아기 고양이";
+        // const figcaption = document.createElement("figcaption");
+        // figcaption.innerText =
+        //   "고양이가 깜짝 놀란 듯이 앞발을 활짝 벌리고 있다";
+        // figure.append(img, figcaption);
+
+        // innerHTML로 요소를 한꺼번에 추가하기
+        figure.innerHTML = `<img
+          src="https://i.ytimg.com/vi/OebUwWL0QMY/mqdefault.jpg"
+          alt="주인의 손을 보고 함께 손을 벌린 아기 고양이"
+        />
+        <figcaption>고양이가 깜짝 놀란 듯이 앞발을 활짝 벌리고 있다</figcaption>`;
+
+        // 방법 1: 요소를 하나씩 추가하기
+        // main.append(figure);
+        // 방법 2: array에 요소를 담아두었다가 한꺼번에 추가하기
+        // figArray.push(figure);
+        // 방법 3: fragment에 요소를 하나씩 추가하기
+        frag.append(figure);
+      }
+      // main.append(...figArray);
+      main.append(frag);
+    </script>
+  </body>
+</html>
