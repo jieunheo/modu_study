@@ -1,0 +1,7 @@
+.resume {
+  border: 1px solid #000;
+  font-weight: bold;
+}
+.resume p {
+  font-size: 1.5rem;
+}
